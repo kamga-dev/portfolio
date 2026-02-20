@@ -6,73 +6,102 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #333;
         }
-        h1, h2 {
-            border-bottom: 2px solid #ccc;
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            border-bottom: 2px solid #eee;
             padding-bottom: 5px;
         }
         ul {
-            list-style-type: square;
+            padding-left: 20px;
         }
-        a {
-            color: #0366d6;
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #0d6efd;
+            color: white;
+            border-radius: 5px;
             text-decoration: none;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-    <h1>💼 Portfolio – Kuete Kamga</h1>
+<header>
+    <h1>Kuete Kamga</h1>
+    <p>Informatikstudent | Werkstudent Entwickler</p>
+</header>
 
-    <h2>👨‍💻 Über mich</h2>
-    <p>
-        Motivierter Informatikstudent an der Technische Hochschule Mittelhessen,
-        engagierter und zielstrebiger Student mit einer ausgeprägten Leidenschaft
-        für Programmierung und Softwareentwicklung im Bereich Datenbanken.
-        Ich habe eine enorme Begeisterungsfähigkeit für neue Technologien im Bereich Informatik.
-    </p>
+<div class="container">
 
-    <h2>💼 Berufserfahrung</h2>
-    <p><strong>Werkstudent Praktikum / Projektarbeit</strong></p>
-    <ul>
-        <li>Praktische Erfahrung in Softwareentwicklung und Programmierung während des Studiums</li>
-        <li>Arbeit mit Java, HTML, CSS, JavaScript</li>
-        <li>Verständnis von Webtechnologien, Algorithmen und Datenstrukturen</li>
-    </ul>
+    <div class="card">
+        <h2>👨‍💻 Über mich</h2>
+        <p>
+            Motivierter Informatikstudent an der Technische Hochschule Mittelhessen
+            mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.
+        </p>
+    </div>
 
-    <p><strong>Andere relevante Erfahrung</strong></p>
-    <ul>
-        <li>Organisation von digitalen Projekten oder Kursarbeiten</li>
-        <li>Teamarbeit, Problemlösung und analytische Fähigkeiten</li>
-    </ul>
+    <div class="card">
+        <h2>💻 Projekte</h2>
+        <ul>
+            <li><strong>Vier Gewinnt</strong> – Java-Spiel mit Spiel-Logik</li>
+            <li><strong>Turing Maschine</strong> – Simulation aus der theoretischen Informatik</li>
+        </ul>
+    </div>
 
-    <h2>📜 Zertifikationen</h2>
-    <ul>
-        <li>[Zertifikat Name] – Institution / Plattform</li>
-        <li>[Zertifikat Name] – Institution / Plattform</li>
-        <li>Java Grundlagen, Webentwicklung, Algorithmik</li>
-    </ul>
+    <div class="card">
+        <h2>🛠️ Fähigkeiten</h2>
+        <ul>
+            <li>Java</li>
+            <li>HTML / CSS / JavaScript</li>
+            <li>Algorithmen & Datenstrukturen</li>
+            <li>Theoretische Informatik</li>
+        </ul>
+    </div>
 
-    <h2>🛠️ Fähigkeiten</h2>
-    <ul>
-        <li>Java</li>
-        <li>HTML / CSS / JavaScript</li>
-        <li>Algorithmen & Datenstrukturen</li>
-        <li>Theoretische Informatik (Turing-Maschine)</li>
-    </ul>
+    <div class="card">
+        <h2>📫 Kontakt</h2>
+        <p>Email: <a href="mailto:kuetekamga11@email.com">kuetekamga11@email.com</a></p>
+        <p>GitHub: <a href="https://github.com/kamga-dev">github.com/kamga-dev</a></p>
+        <a class="btn" href="https://github.com/kamga-dev">Mein GitHub ansehen</a>
+    </div>
 
-    <h2>📫 Kontakt</h2>
-    <ul>
-        <li>E-Mail: <a href="mailto:kuetekamga11@email.com">kuetekamga11@email.com</a></li>
-        <li>GitHub: <a href="https://github.com/kamga-dev">github.com/kamga-dev</a></li>
-        <li>Portfolio: <a href="https://kamga-dev.github.io/portfolio/">kamga-dev.github.io/portfolio</a></li>
-    </ul>
+</div>
 
-    <h2>📄 Lebenslauf</h2>
-    <p>Hier kannst du später einen PDF-Lebenslauf hinzufügen.</p>
+<footer>
+    © 2026 Kuete Kamga – Portfolio
+</footer>
 
 </body>
 </html>
