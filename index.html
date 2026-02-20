@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Kuete Kamga</title>
 
-<!-- Font Awesome pour icônes -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 /* 🌌 Fond étoilé animé */
 body {
@@ -49,15 +46,23 @@ header {
 
 /* Dropdown langue */
 .dropdown { position:relative; cursor:pointer; color:#ccc; font-size:1.5em; transition: transform 0.3s, color 0.3s; }
-.dropdown:hover i { color:#00c6ff; transform: scale(1.3) rotate(-10deg);}
+.dropdown:hover svg { transform: scale(1.3) rotate(-10deg); color:#00c6ff; }
 .dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.5);}
 .dropdown-content a { display:block; padding:10px 16px; color:#fff; text-decoration:none; font-size:1em; transition:0.2s; }
 .dropdown-content a:hover { background:#00c6ff; color:black; }
 .dropdown:hover .dropdown-content { display:block; }
 
 /* Toggle clair/nuit */
-.mode-toggle { cursor: pointer; color: #00c6ff; font-size: 1.5em; transition: transform 0.3s, color 0.3s; }
-.mode-toggle:hover { transform: rotate(20deg) scale(1.2); color: #ffcc00; }
+.mode-toggle svg {
+  cursor:pointer;
+  width:24px;
+  height:24px;
+  transition: transform 0.3s, fill 0.3s;
+}
+.mode-toggle svg:hover {
+  transform: rotate(20deg) scale(1.2);
+  fill: #ffcc00;
+}
 
 /* Container et cartes */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; }
@@ -95,16 +100,20 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
   <div class="header-right">
     <!-- Icône langue -->
     <div class="dropdown">
-      <i class="fas fa-language"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ccc" viewBox="0 0 24 24">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6 12h-4v-4h-4v4H6v-2h4V6h4v4h4v2z"/>
+      </svg>
       <div class="dropdown-content">
         <a href="#">English</a>
         <a href="#">Deutsch</a>
         <a href="#">Français</a>
       </div>
     </div>
-    <!-- Icône mode sombre -->
+    <!-- Icône mode sombre/clair -->
     <div class="mode-toggle">
-      <i class="fas fa-moon"></i>
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00c6ff" viewBox="0 0 24 24">
+        <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
+      </svg>
     </div>
   </div>
 </header>
@@ -140,48 +149,21 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
   <div id="skills" class="card">
     <h2 data-key="skills-title">Skills</h2>
     <div class="skill-bar">
-      <div class="label"><i class="fab fa-html5" style="color:#e34c26;"></i> HTML <span>90%</span></div>
+      <div class="label"><span>HTML</span> <span>90%</span></div>
       <div class="bar"><div class="progress" style="animation: fillHtml 2s ease-out forwards;"></div></div>
     </div>
     <div class="skill-bar">
-      <div class="label"><i class="fab fa-css3-alt" style="color:#264de4;"></i> CSS <span>85%</span></div>
+      <div class="label"><span>CSS</span> <span>85%</span></div>
       <div class="bar"><div class="progress" style="animation: fillCss 2s ease-out forwards;"></div></div>
     </div>
     <div class="skill-bar">
-      <div class="label"><i class="fab fa-js" style="color:#f7df1e;"></i> JavaScript <span>80%</span></div>
+      <div class="label"><span>JavaScript</span> <span>80%</span></div>
       <div class="bar"><div class="progress" style="animation: fillJs 2s ease-out forwards;"></div></div>
     </div>
     <div class="skill-bar">
-      <div class="label"><i class="fab fa-java" style="color:#007396;"></i> Java <span>75%</span></div>
+      <div class="label"><span>Java</span> <span>75%</span></div>
       <div class="bar"><div class="progress" style="animation: fillJava 2s ease-out forwards;"></div></div>
     </div>
-    <div class="skill-bar">
-      <div class="label"><i class="fas fa-database" style="color:#4db33d;"></i> Datenbanken <span>70%</span></div>
-      <div class="bar"><div class="progress" style="animation: fillDb 2s ease-out forwards;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="label"><i class="fas fa-robot" style="color:#ff6f61;"></i> Theoretische Informatik <span>65%</span></div>
-      <div class="bar"><div class="progress" style="animation: fillTi 2s ease-out forwards;"></div></div>
-    </div>
-  </div>
-
-  <!-- Zertifikate -->
-  <div class="card">
-    <h2 data-key="certifications-title">Zertifikationen</h2>
-    <ul>
-      <li>Java Grundlagen</li>
-      <li>Webentwicklung</li>
-      <li>Algorithmik</li>
-    </ul>
-  </div>
-
-  <!-- Contact -->
-  <div id="contact" class="card">
-    <h2 data-key="contact-title">Kontakt</h2>
-    <p><span data-key="email-label">Email:</span> <a href="mailto:kuetekamga11@email.com">kuetekamga11@email.com</a></p>
-    <p>GitHub: <a href="https://github.com/kamga-dev">github.com/kamga-dev</a></p>
-    <a class="btn" id="github-btn" data-key="github-btn" href="https://github.com/kamga-dev">Voir mon GitHub</a>
-    <a class="btn" id="cv-btn" data-key="cv-btn" href="CV_Kuete_Kamga.pdf" target="_blank">📄 Télécharger mon CV</a>
   </div>
 
 </div>
@@ -201,34 +183,34 @@ window.addEventListener('scroll',revealOnScroll);
 window.addEventListener('load',revealOnScroll);
 </script>
 
-<!-- Mode clair/nuit + toggle icône -->
+<!-- Mode clair/nuit -->
 <script>
 const toggle=document.querySelector('.mode-toggle');
-const icon=toggle.querySelector('i');
+const icon=document.getElementById('moon-icon');
 
 if(localStorage.getItem('theme')==='light'){
   document.body.classList.add('light-mode');
-  icon.classList.replace('fa-moon','fa-sun');
+  icon.setAttribute('fill','#ffaa00');
 }
 
 toggle.addEventListener('click',()=>{
   document.body.classList.toggle('light-mode');
   if(document.body.classList.contains('light-mode')){
-    icon.classList.replace('fa-moon','fa-sun');
+    icon.setAttribute('fill','#ffaa00');
     localStorage.setItem('theme','light');
   } else{
-    icon.classList.replace('fa-sun','fa-moon');
+    icon.setAttribute('fill','#00c6ff');
     localStorage.setItem('theme','dark');
   }
 });
 </script>
 
-<!-- Traduction -->
+<!-- Traduction simple -->
 <script>
 const translations={
-"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","projects-title":"Projets","project1":"Puissance 4 – Jeu Java","project2":"Machine de Turing – Simulation","experience-title":"Expérience","skills-title":"Compétences","certifications-title":"Certifications","contact-title":"Contact","email-label":"Email :","github-btn":"Voir mon GitHub","cv-btn":"Télécharger mon CV"},
-"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","projects-title":"Projects","project1":"Connect Four – Java Game","project2":"Turing Machine – Simulation","experience-title":"Work Experience","skills-title":"Skills","certifications-title":"Certifications","contact-title":"Contact","email-label":"Email:","github-btn":"See my GitHub","cv-btn":"Download my CV"},
-"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","projects-title":"Projekte","project1":"Vier Gewinnt – Java Spiel","project2":"Turing Maschine – Simulation aus der theoretischen Informatik","experience-title":"Berufserfahrung","skills-title":"Skills","certifications-title":"Zertifikationen","contact-title":"Kontakt","email-label":"Email:","github-btn":"Mein GitHub","cv-btn":"Mein Lebenslauf herunterladen"}
+"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","projects-title":"Projets","project1":"Puissance 4 – Jeu Java","project2":"Machine de Turing – Simulation"},
+"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","projects-title":"Projects","project1":"Connect Four – Java Game","project2":"Turing Machine – Simulation"},
+"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","projects-title":"Projekte","project1":"Vier Gewinnt – Java Spiel","project2":"Turing Maschine – Simulation aus der theoretischen Informatik"}
 };
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
   link.addEventListener('click',e=>{
@@ -249,8 +231,6 @@ style.innerHTML=`
 @keyframes fillCss { from {width:0%;} to {width:85%;} }
 @keyframes fillJs { from {width:0%;} to {width:80%;} }
 @keyframes fillJava { from {width:0%;} to {width:75%;} }
-@keyframes fillDb { from {width:0%;} to {width:70%;} }
-@keyframes fillTi { from {width:0%;} to {width:65%;} }
 `;
 document.head.appendChild(style);
 </script>
