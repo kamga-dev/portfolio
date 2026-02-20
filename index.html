@@ -1,70 +1,125 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio – Kuete Kamga</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-        header {
-            background: #0d6efd;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 15px;
-            background: #0d6efd;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio – Kuete Kamga</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    color:white;
+    overflow-x:hidden;
+    background:black;
+}
+
+/* 🌌 background stars */
+.stars {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    animation: moveStars 60s linear infinite;
+    z-index:-1;
+}
+
+@keyframes moveStars {
+    from {background-position:0 0;}
+    to {background-position:10000px 5000px;}
+}
+
+header {
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
+}
+
+nav {
+    margin-top:20px;
+}
+
+nav a {
+    margin:10px;
+    color:#00c6ff;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover {
+    color:white;
+    text-shadow:0 0 10px #00c6ff;
+}
+
+.container {
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card {
+    background:rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding:25px;
+    margin:25px 0;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 0 20px rgba(0,198,255,0.5);
+}
+
+h2 {
+    border-bottom:1px solid rgba(255,255,255,0.2);
+    padding-bottom:5px;
+}
+
+.btn {
+    display:inline-block;
+    padding:10px 18px;
+    margin-top:10px;
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.btn:hover {
+    box-shadow:0 0 15px #00c6ff;
+    transform:scale(1.05);
+}
+
+footer {
+    text-align:center;
+    padding:20px;
+    opacity:0.7;
+}
+</style>
 </head>
+
 <body>
 
+<div class="stars"></div>
+
 <header>
-    <h1>Kuete Kamga</h1>
+    <h1>🚀 Kuete Kamga</h1>
     <p>Informatikstudent | Werkstudent Entwickler</p>
+
+    <nav>
+        <a href="#about">Über mich</a>
+        <a href="#projects">Projekte</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
 </header>
 
 <div class="container">
 
-    <div class="card">
+    <div id="about" class="card">
         <h2>👨‍💻 Über mich</h2>
         <p>
             Motivierter Informatikstudent an der Technische Hochschule Mittelhessen
@@ -72,58 +127,53 @@
         </p>
     </div>
 
-    <div class="card">
+    <div id="projects" class="card">
         <h2>💻 Projekte</h2>
         <ul>
-            <li><strong>Vier Gewinnt</strong> – Java-Spiel mit Spiel-Logik</li>
-            <li><strong>Turing Maschine</strong> – Simulation aus der theoretischen Informatik</li>
+            <li><strong>Vier Gewinnt</strong> – Java Spiel</li>
+            <li><strong>Turing Maschine</strong> – Simulation</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>🛠️ Fähigkeiten</h2>
+        <h2>💼 Berufserfahrung</h2>
+        <ul>
+            <li>Softwareentwicklung während Studium</li>
+            <li>Java, HTML, CSS, JS</li>
+            <li>Algorithmen & Datenstrukturen</li>
+        </ul>
+    </div>
+
+    <div id="skills" class="card">
+        <h2>🛠️ Skills</h2>
         <ul>
             <li>Java</li>
             <li>HTML / CSS / JavaScript</li>
-            <li>Algorithmen & Datenstrukturen</li>
+            <li>Datenbanken</li>
             <li>Theoretische Informatik</li>
         </ul>
     </div>
-    <div class="card">
-    <h2>💼 Berufserfahrung</h2>
-    <p><strong>Werkstudent Praktikum / Projektarbeit</strong></p>
-    <ul>
-        <li>Praktische Erfahrung in Softwareentwicklung und Programmierung während des Studiums</li>
-        <li>Arbeit mit Java, HTML, CSS, JavaScript</li>
-        <li>Verständnis von Webtechnologien, Algorithmen und Datenstrukturen</li>
-    </ul>
-
-    <p><strong>Weitere Erfahrungen</strong></p>
-    <ul>
-        <li>Organisation von digitalen Projekten oder Kursarbeiten</li>
-        <li>Teamarbeit, Problemlösung und analytische Fähigkeiten</li>
-    </ul>
-</div>
-    <div class="card">
-    <h2>📜 Zertifikationen</h2>
-    <ul>
-        <li>Java Grundlagen – Online Kurs</li>
-        <li>Webentwicklung – HTML, CSS, JavaScript</li>
-        <li>Algorithmik & Datenstrukturen</li>
-    </ul>
-</div>
 
     <div class="card">
+        <h2>📜 Zertifikationen</h2>
+        <ul>
+            <li>Java Grundlagen</li>
+            <li>Webentwicklung</li>
+            <li>Algorithmik</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="card">
         <h2>📫 Kontakt</h2>
         <p>Email: <a href="mailto:kuetekamga11@email.com">kuetekamga11@email.com</a></p>
         <p>GitHub: <a href="https://github.com/kamga-dev">github.com/kamga-dev</a></p>
-        <a class="btn" href="https://github.com/kamga-dev">Mein GitHub ansehen</a>
+        <a class="btn" href="https://github.com/kamga-dev">Voir mon GitHub</a>
     </div>
 
 </div>
 
 <footer>
-    © 2026 Kuete Kamga – Portfolio
+© 2026 Kuete Kamga – Portfolio
 </footer>
 
 </body>
