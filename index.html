@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Kuete Kamga</title>
 
+<!-- Font Awesome pour icônes pro -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
 /* 🌌 Fond espace animé */
 body {
@@ -36,8 +39,7 @@ header {
 }
 header h1 {
     font-size:3em;
-    color:#00f0ff;
-    text-shadow:0 0 20px rgba(0,240,255,0.6);
+    color:#00c6ff; /* moins lumineux */
 }
 header p {
     font-size:1.2em;
@@ -56,7 +58,6 @@ nav a {
 }
 nav a:hover {
     color:#fff;
-    text-shadow:0 0 10px #00c6ff;
 }
 
 /* Container et cartes */
@@ -86,9 +87,8 @@ nav a:hover {
 
 /* Titres */
 .card h2 {
-    color:#00f0ff;
+    color:#00c6ff; /* plus sobre */
     font-size:2em;
-    text-shadow:0 0 10px rgba(0,240,255,0.5);
     border-bottom:1px solid rgba(255,255,255,0.2);
     padding-bottom:5px;
 }
@@ -98,31 +98,32 @@ nav a:hover {
     display:inline-block;
     padding:10px 18px;
     margin-top:10px;
-    background:linear-gradient(90deg,#00f0ff,#0072ff);
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
     border-radius:25px;
     text-decoration:none;
     color:white;
     transition:0.3s;
 }
 .btn:hover {
-    box-shadow:0 0 15px #00f0ff;
+    box-shadow:0 0 15px #00c6ff;
     transform:scale(1.05);
 }
 
 /* Skills grid */
 .skills-grid {
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
 }
 .skills-grid div {
-    text-align:center;
-    flex:1 1 100px;
+  text-align:center;
+  flex:1 1 100px;
 }
 .skills-grid div p {
-    color:white;
-    margin-top:5px;
-    font-weight:bold;
+  color:#ddd;
+  margin-top:5px;
+  font-weight:500;
+  font-size:1em;
 }
 
 /* Footer */
@@ -139,7 +140,7 @@ footer {
 <div class="stars"></div>
 
 <header>
-    <h1>🚀 Kuete Kamga</h1>
+    <h1>Kuete Kamga</h1>
     <p>Informatikstudent | Werkstudent Entwickler</p>
 
     <nav>
@@ -154,7 +155,7 @@ footer {
 
     <!-- Über mich -->
     <div id="about" class="card">
-        <h2>👨‍💻 Über mich</h2>
+        <h2>Über mich</h2>
         <p>
             Motivierter Informatikstudent an der Technische Hochschule Mittelhessen
             mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.
@@ -163,7 +164,7 @@ footer {
 
     <!-- Projekte -->
     <div id="projects" class="card">
-        <h2>💻 Projekte</h2>
+        <h2>Projekte</h2>
         <ul>
             <li><strong>Vier Gewinnt</strong> – Java Spiel</li>
             <li><strong>Turing Maschine</strong> – Simulation aus der theoretischen Informatik</li>
@@ -172,7 +173,7 @@ footer {
 
     <!-- Berufserfahrung -->
     <div class="card">
-        <h2>💼 Berufserfahrung</h2>
+        <h2>Berufserfahrung</h2>
         <ul>
             <li>Softwareentwicklung während des Studiums</li>
             <li>Java, HTML, CSS, JS</li>
@@ -180,32 +181,40 @@ footer {
         </ul>
     </div>
 
-    <!-- Skills avec dessins -->
+    <!-- Skills avec icônes pro -->
     <div id="skills" class="card">
-        <h2>🛠️ Skills</h2>
-        <div class="skills-grid">
-            <div>
-                <div style="font-size:40px; color:#f0db4f;">☕</div>
-                <p>Java</p>
-            </div>
-            <div>
-                <div style="font-size:40px; color:#e34c26;">🌐</div>
-                <p>HTML / CSS / JS</p>
-            </div>
-            <div>
-                <div style="font-size:40px; color:#4db33d;">🗄️</div>
-                <p>Datenbanken</p>
-            </div>
-            <div>
-                <div style="font-size:40px; color:#ff6f61;">🤖</div>
-                <p>Theoretische Informatik</p>
-            </div>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <i class="fab fa-html5" style="font-size:40px; color:#e34c26;"></i>
+          <p>HTML</p>
         </div>
+        <div>
+          <i class="fab fa-css3-alt" style="font-size:40px; color:#264de4;"></i>
+          <p>CSS</p>
+        </div>
+        <div>
+          <i class="fab fa-js" style="font-size:40px; color:#f7df1e;"></i>
+          <p>JavaScript</p>
+        </div>
+        <div>
+          <i class="fab fa-java" style="font-size:40px; color:#007396;"></i>
+          <p>Java</p>
+        </div>
+        <div>
+          <i class="fas fa-database" style="font-size:40px; color:#4db33d;"></i>
+          <p>Datenbanken</p>
+        </div>
+        <div>
+          <i class="fas fa-robot" style="font-size:40px; color:#ff6f61;"></i>
+          <p>Theoretische Informatik</p>
+        </div>
+      </div>
     </div>
 
     <!-- Zertifikate -->
     <div class="card">
-        <h2>📜 Zertifikationen</h2>
+        <h2>Zertifikationen</h2>
         <ul>
             <li>Java Grundlagen</li>
             <li>Webentwicklung</li>
@@ -215,7 +224,7 @@ footer {
 
     <!-- Contact -->
     <div id="contact" class="card">
-        <h2>📫 Kontakt</h2>
+        <h2>Kontakt</h2>
         <p>Email: <a href="mailto:kuetekamga11@email.com">kuetekamga11@email.com</a></p>
         <p>GitHub: <a href="https://github.com/kamga-dev">github.com/kamga-dev</a></p>
         <a class="btn" href="https://github.com/kamga-dev">Voir mon GitHub</a>
