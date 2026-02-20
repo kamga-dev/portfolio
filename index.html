@@ -6,15 +6,15 @@
 <title>Portfolio – Kuete Kamga</title>
 
 <style>
+/* 🌌 Fond espace animé */
 body {
     margin:0;
-    font-family: Arial, sans-serif;
-    color:white;
+    font-family: 'Segoe UI', sans-serif;
+    color:#ccc;
     overflow-x:hidden;
     background:black;
 }
 
-/* 🌌 background stars */
 .stars {
     position:fixed;
     width:100%;
@@ -23,22 +23,30 @@ body {
     animation: moveStars 60s linear infinite;
     z-index:-1;
 }
-
 @keyframes moveStars {
     from {background-position:0 0;}
     to {background-position:10000px 5000px;}
 }
 
+/* Header */
 header {
     text-align:center;
     padding:80px 20px;
     background:linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
 }
+header h1 {
+    font-size:3em;
+    color:#00f0ff;
+    text-shadow:0 0 20px rgba(0,240,255,0.6);
+}
+header p {
+    font-size:1.2em;
+    color:#ccc;
+}
 
 nav {
     margin-top:20px;
 }
-
 nav a {
     margin:10px;
     color:#00c6ff;
@@ -46,53 +54,78 @@ nav a {
     font-weight:bold;
     transition:0.3s;
 }
-
 nav a:hover {
-    color:white;
+    color:#fff;
     text-shadow:0 0 10px #00c6ff;
 }
 
+/* Container et cartes */
 .container {
     max-width:1000px;
     margin:auto;
     padding:20px;
 }
-
 .card {
     background:rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
-    padding:25px;
-    margin:25px 0;
-    border-radius:12px;
-    transition:0.3s;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 12px;
+    transition: all 1s ease-out;
+    opacity: 0;           
+    transform: translateY(20px);
 }
-
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 .card:hover {
     transform:translateY(-8px) scale(1.02);
     box-shadow:0 0 20px rgba(0,198,255,0.5);
 }
 
-h2 {
+/* Titres */
+.card h2 {
+    color:#00f0ff;
+    font-size:2em;
+    text-shadow:0 0 10px rgba(0,240,255,0.5);
     border-bottom:1px solid rgba(255,255,255,0.2);
     padding-bottom:5px;
 }
 
+/* Boutons */
 .btn {
     display:inline-block;
     padding:10px 18px;
     margin-top:10px;
-    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    background:linear-gradient(90deg,#00f0ff,#0072ff);
     border-radius:25px;
     text-decoration:none;
     color:white;
     transition:0.3s;
 }
-
 .btn:hover {
-    box-shadow:0 0 15px #00c6ff;
+    box-shadow:0 0 15px #00f0ff;
     transform:scale(1.05);
 }
 
+/* Skills grid */
+.skills-grid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+.skills-grid div {
+    text-align:center;
+    flex:1 1 100px;
+}
+.skills-grid div p {
+    color:white;
+    margin-top:5px;
+    font-weight:bold;
+}
+
+/* Footer */
 footer {
     text-align:center;
     padding:20px;
@@ -119,6 +152,7 @@ footer {
 
 <div class="container">
 
+    <!-- Über mich -->
     <div id="about" class="card">
         <h2>👨‍💻 Über mich</h2>
         <p>
@@ -127,33 +161,49 @@ footer {
         </p>
     </div>
 
+    <!-- Projekte -->
     <div id="projects" class="card">
         <h2>💻 Projekte</h2>
         <ul>
             <li><strong>Vier Gewinnt</strong> – Java Spiel</li>
-            <li><strong>Turing Maschine</strong> – Simulation</li>
+            <li><strong>Turing Maschine</strong> – Simulation aus der theoretischen Informatik</li>
         </ul>
     </div>
 
+    <!-- Berufserfahrung -->
     <div class="card">
         <h2>💼 Berufserfahrung</h2>
         <ul>
-            <li>Softwareentwicklung während Studium</li>
+            <li>Softwareentwicklung während des Studiums</li>
             <li>Java, HTML, CSS, JS</li>
             <li>Algorithmen & Datenstrukturen</li>
         </ul>
     </div>
 
+    <!-- Skills avec dessins -->
     <div id="skills" class="card">
         <h2>🛠️ Skills</h2>
-        <ul>
-            <li>Java</li>
-            <li>HTML / CSS / JavaScript</li>
-            <li>Datenbanken</li>
-            <li>Theoretische Informatik</li>
-        </ul>
+        <div class="skills-grid">
+            <div>
+                <div style="font-size:40px; color:#f0db4f;">☕</div>
+                <p>Java</p>
+            </div>
+            <div>
+                <div style="font-size:40px; color:#e34c26;">🌐</div>
+                <p>HTML / CSS / JS</p>
+            </div>
+            <div>
+                <div style="font-size:40px; color:#4db33d;">🗄️</div>
+                <p>Datenbanken</p>
+            </div>
+            <div>
+                <div style="font-size:40px; color:#ff6f61;">🤖</div>
+                <p>Theoretische Informatik</p>
+            </div>
+        </div>
     </div>
 
+    <!-- Zertifikate -->
     <div class="card">
         <h2>📜 Zertifikationen</h2>
         <ul>
@@ -163,11 +213,13 @@ footer {
         </ul>
     </div>
 
+    <!-- Contact -->
     <div id="contact" class="card">
         <h2>📫 Kontakt</h2>
         <p>Email: <a href="mailto:kuetekamga11@email.com">kuetekamga11@email.com</a></p>
         <p>GitHub: <a href="https://github.com/kamga-dev">github.com/kamga-dev</a></p>
         <a class="btn" href="https://github.com/kamga-dev">Voir mon GitHub</a>
+        <a class="btn" href="CV_Kuete_Kamga.pdf" target="_blank">📄 Télécharger mon CV</a>
     </div>
 
 </div>
@@ -175,6 +227,21 @@ footer {
 <footer>
 © 2026 Kuete Kamga – Portfolio
 </footer>
+
+<!-- Fade-in au scroll -->
+<script>
+const cards = document.querySelectorAll('.card');
+function revealOnScroll() {
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50) {
+            card.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+</script>
 
 </body>
 </html>
