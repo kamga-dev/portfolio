@@ -28,15 +28,14 @@ body {
   to {background-position:10000px 5000px;}
 }
 
-/* Header */
+/* Header sticky */
 header {
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
   background:rgba(0,0,0,0.7);
-  position:fixed;
-  width:100%;
+  position:sticky;
   top:0;
   z-index:100;
   transition:0.3s;
@@ -52,7 +51,7 @@ header {
 .dropdown-content a:hover { background:#00c6ff; color:black; }
 .dropdown:hover .dropdown-content { display:block; }
 
-/* Toggle clair/nuit */
+/* Toggle sombre/clair */
 .mode-toggle svg {
   cursor:pointer;
   width:24px;
@@ -64,22 +63,40 @@ header {
   fill: #ffcc00;
 }
 
-/* Container et cartes */
+/* Container */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; }
+
+/* Hero / Über mich */
+#about {
+  text-align:center;
+}
+#about img {
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:20px;
+  border:3px solid #00c6ff;
+}
+#about p { max-width:700px; margin:auto; font-size:1.1em; line-height:1.6em; }
+
+/* Cards fade-in */
 .card { background:rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding:25px; margin:25px 0; border-radius:12px; transition: all 1s ease-out; opacity:0; transform:translateY(20px);}
 .card.visible { opacity:1; transform:translateY(0);}
 .card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 0 20px rgba(0,198,255,0.5);}
 .card h2 { color:#00c6ff; font-size:2em; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:5px; }
-
-/* Boutons */
-.btn { display:inline-block; padding:10px 18px; margin-top:10px; background:linear-gradient(90deg,#00c6ff,#0072ff); border-radius:25px; text-decoration:none; color:white; transition:0.3s; }
-.btn:hover { box-shadow:0 0 15px #00c6ff; transform:scale(1.05); }
 
 /* Skills barres droite→gauche */
 .skill-bar { margin:20px 0; }
 .skill-bar .label { font-weight:500; margin-bottom:5px; color:#ddd; display:flex; justify-content:space-between; }
 .skill-bar .bar { width:100%; background: rgba(255,255,255,0.1); border-radius:25px; overflow:hidden; height:20px; position: relative;}
 .skill-bar .progress { height:100%; width:0%; border-radius:25px; background: linear-gradient(90deg,#00c6ff,#0072ff); position: absolute; right:0; animation-fill-mode: forwards; }
+
+/* Contact Form */
+form { display:flex; flex-direction:column; max-width:600px; margin:auto; }
+form input, form textarea { margin:10px 0; padding:10px; border-radius:8px; border:none; outline:none; }
+form button { padding:10px; border:none; border-radius:25px; background:linear-gradient(90deg,#00c6ff,#0072ff); color:white; cursor:pointer; transition:0.3s;}
+form button:hover { transform:scale(1.05); }
 
 /* Footer */
 footer { text-align:center; padding:20px; opacity:0.7; }
@@ -98,7 +115,6 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
   <div class="header-right">
-    <!-- Icône langue -->
     <div class="dropdown">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ccc" viewBox="0 0 24 24">
         <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6 12h-4v-4h-4v4H6v-2h4V6h4v4h4v2z"/>
@@ -109,7 +125,6 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
         <a href="#">Français</a>
       </div>
     </div>
-    <!-- Icône mode sombre/clair -->
     <div class="mode-toggle">
       <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00c6ff" viewBox="0 0 24 24">
         <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
@@ -120,29 +135,11 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
 
 <div class="container">
 
-  <!-- Über mich -->
+  <!-- Hero / Über mich -->
   <div id="about" class="card">
+    <img src="https://via.placeholder.com/180" alt="Photo de Kuete Kamga">
     <h2 data-key="about-title">Über mich</h2>
     <p data-key="about-text">Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.</p>
-  </div>
-
-  <!-- Projekte -->
-  <div id="projects" class="card">
-    <h2 data-key="projects-title">Projekte</h2>
-    <ul>
-      <li data-key="project1">Vier Gewinnt – Java Spiel</li>
-      <li data-key="project2">Turing Maschine – Simulation aus der theoretischen Informatik</li>
-    </ul>
-  </div>
-
-  <!-- Berufserfahrung -->
-  <div class="card">
-    <h2 data-key="experience-title">Berufserfahrung</h2>
-    <ul>
-      <li>Softwareentwicklung während des Studiums</li>
-      <li>Java, HTML, CSS, JS</li>
-      <li>Algorithmen & Datenstrukturen</li>
-    </ul>
   </div>
 
   <!-- Skills -->
@@ -166,12 +163,52 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
     </div>
   </div>
 
+  <!-- Projects -->
+  <div id="projects" class="card">
+    <h2 data-key="projects-title">Projekte</h2>
+    <ul>
+      <li data-key="project1">Vier Gewinnt – Java Spiel</li>
+      <li data-key="project2">Turing Maschine – Simulation</li>
+    </ul>
+  </div>
+
+  <!-- Experience -->
+  <div id="experience" class="card">
+    <h2 data-key="experience-title">Berufserfahrung</h2>
+    <ul>
+      <li>Softwareentwicklung während des Studiums</li>
+      <li>Java, HTML, CSS, JS</li>
+      <li>Algorithmen & Datenstrukturen</li>
+    </ul>
+  </div>
+
+  <!-- Certifications -->
+  <div id="certifications" class="card">
+    <h2 data-key="certifications-title">Zertifikationen</h2>
+    <ul>
+      <li>Java Grundlagen</li>
+      <li>Webentwicklung</li>
+      <li>Algorithmik</li>
+    </ul>
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="card">
+    <h2 data-key="contact-title">Kontakt</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Nachricht" rows="5" required></textarea>
+      <button type="submit">Senden</button>
+    </form>
+  </div>
+
 </div>
 
 <footer>© 2026 Kuete Kamga – Portfolio</footer>
 
-<!-- Fade-in des cartes -->
 <script>
+// Fade-in des cartes
 const cards=document.querySelectorAll('.card');
 function revealOnScroll(){
   cards.forEach(card=>{
@@ -181,18 +218,14 @@ function revealOnScroll(){
 }
 window.addEventListener('scroll',revealOnScroll);
 window.addEventListener('load',revealOnScroll);
-</script>
 
-<!-- Mode clair/nuit -->
-<script>
+// Mode sombre/clair
 const toggle=document.querySelector('.mode-toggle');
 const icon=document.getElementById('moon-icon');
-
 if(localStorage.getItem('theme')==='light'){
   document.body.classList.add('light-mode');
   icon.setAttribute('fill','#ffaa00');
 }
-
 toggle.addEventListener('click',()=>{
   document.body.classList.toggle('light-mode');
   if(document.body.classList.contains('light-mode')){
@@ -203,14 +236,12 @@ toggle.addEventListener('click',()=>{
     localStorage.setItem('theme','dark');
   }
 });
-</script>
 
-<!-- Traduction simple -->
-<script>
+// Traduction simple
 const translations={
-"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","projects-title":"Projets","project1":"Puissance 4 – Jeu Java","project2":"Machine de Turing – Simulation"},
-"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","projects-title":"Projects","project1":"Connect Four – Java Game","project2":"Turing Machine – Simulation"},
-"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","projects-title":"Projekte","project1":"Vier Gewinnt – Java Spiel","project2":"Turing Maschine – Simulation aus der theoretischen Informatik"}
+"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","skills-title":"Compétences","projects-title":"Projets","project1":"Puissance 4 – Jeu Java","project2":"Machine de Turing – Simulation","experience-title":"Expérience","certifications-title":"Certifications","contact-title":"Contact"},
+"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","skills-title":"Skills","projects-title":"Projects","project1":"Connect Four – Java Game","project2":"Turing Machine – Simulation","experience-title":"Work Experience","certifications-title":"Certifications","contact-title":"Contact"},
+"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","skills-title":"Skills","projects-title":"Projekte","project1":"Vier Gewinnt – Java Spiel","project2":"Turing Maschine – Simulation","experience-title":"Berufserfahrung","certifications-title":"Zertifikationen","contact-title":"Kontakt"}
 };
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
   link.addEventListener('click',e=>{
@@ -221,10 +252,8 @@ document.querySelectorAll('.dropdown-content a').forEach(link=>{
     });
   });
 });
-</script>
 
-<!-- Skills bar animation -->
-<script>
+// Skills bar animation
 const style=document.createElement('style');
 style.innerHTML=`
 @keyframes fillHtml { from {width:0%;} to {width:90%;} }
