@@ -45,10 +45,10 @@ header {
   transition:0.3s;
 }
 .header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
-.header-right { display:flex; gap:20px; align-items:center; }
+.header-right { display:flex; gap:25px; align-items:center; padding-right:10px; }
 
 /* Dropdown langue */
-.dropdown { position:relative; cursor:pointer; color:#ccc; font-size:1.5em; }
+.dropdown { position:relative; cursor:pointer; color:#ccc; font-size:1.5em; transition: transform 0.3s, color 0.3s; }
 .dropdown:hover i { color:#00c6ff; transform: scale(1.3) rotate(-10deg);}
 .dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.5);}
 .dropdown-content a { display:block; padding:10px 16px; color:#fff; text-decoration:none; font-size:1em; transition:0.2s; }
@@ -56,9 +56,8 @@ header {
 .dropdown:hover .dropdown-content { display:block; }
 
 /* Toggle clair/nuit */
-.mode-toggle { cursor:pointer; color:#ccc; font-size:1.5em; transition:0.3s; }
-.mode-toggle i { transition: transform 0.3s, color 0.3s; }
-.mode-toggle i:hover { transform: rotate(20deg) scale(1.2); color:#00c6ff; }
+.mode-toggle { cursor: pointer; color: #00c6ff; font-size: 1.5em; transition: transform 0.3s, color 0.3s; }
+.mode-toggle:hover { transform: rotate(20deg) scale(1.2); color: #ffcc00; }
 
 /* Container et cartes */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; }
@@ -94,6 +93,7 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
   <div class="header-right">
+    <!-- Icône langue -->
     <div class="dropdown">
       <i class="fas fa-language"></i>
       <div class="dropdown-content">
@@ -102,7 +102,10 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
         <a href="#">Français</a>
       </div>
     </div>
-    <div class="mode-toggle"><i class="fas fa-moon"></i></div>
+    <!-- Icône mode sombre -->
+    <div class="mode-toggle">
+      <i class="fas fa-moon"></i>
+    </div>
   </div>
 </header>
 
@@ -198,14 +201,16 @@ window.addEventListener('scroll',revealOnScroll);
 window.addEventListener('load',revealOnScroll);
 </script>
 
-<!-- Mode clair/nuit + mémorisation -->
+<!-- Mode clair/nuit + toggle icône -->
 <script>
 const toggle=document.querySelector('.mode-toggle');
 const icon=toggle.querySelector('i');
+
 if(localStorage.getItem('theme')==='light'){
   document.body.classList.add('light-mode');
   icon.classList.replace('fa-moon','fa-sun');
 }
+
 toggle.addEventListener('click',()=>{
   document.body.classList.toggle('light-mode');
   if(document.body.classList.contains('light-mode')){
