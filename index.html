@@ -23,10 +23,7 @@ body {
   animation: moveStars 60s linear infinite;
   z-index:-1;
 }
-@keyframes moveStars {
-  from {background-position:0 0;}
-  to {background-position:10000px 5000px;}
-}
+@keyframes moveStars { from {background-position:0 0;} to {background-position:10000px 5000px;} }
 
 /* Header sticky */
 header {
@@ -58,10 +55,7 @@ header {
   height:24px;
   transition: transform 0.3s, fill 0.3s;
 }
-.mode-toggle svg:hover {
-  transform: rotate(20deg) scale(1.2);
-  fill: #ffcc00;
-}
+.mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
 /* Container */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; }
@@ -86,11 +80,13 @@ header {
 .card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 0 20px rgba(0,198,255,0.5);}
 .card h2 { color:#00c6ff; font-size:2em; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:5px; }
 
-/* Skills barres droite→gauche */
-.skill-bar { margin:20px 0; }
-.skill-bar .label { font-weight:500; margin-bottom:5px; color:#ddd; display:flex; justify-content:space-between; }
-.skill-bar .bar { width:100%; background: rgba(255,255,255,0.1); border-radius:25px; overflow:hidden; height:20px; position: relative;}
-.skill-bar .progress { height:100%; width:0%; border-radius:25px; background: linear-gradient(90deg,#00c6ff,#0072ff); position: absolute; right:0; animation-fill-mode: forwards; }
+/* Skills défilantes */
+.skills-container { overflow:hidden; width:100%; margin-top:20px; }
+.skills-track { display:flex; gap:40px; animation: scrollSkills 20s linear infinite; }
+.skill { display:flex; flex-direction:column; align-items:center; min-width:100px; color:#fff; }
+.skill img { width:60px; height:60px; margin-bottom:5px; }
+@keyframes scrollSkills { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+body.light-mode .skill span { color:black; }
 
 /* Contact Form */
 form { display:flex; flex-direction:column; max-width:600px; margin:auto; }
@@ -106,6 +102,7 @@ body.light-mode { background:white; color:black; }
 body.light-mode header { background:rgba(255,255,255,0.8);}
 body.light-mode .dropdown-content { background:rgba(255,255,255,0.9);}
 body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
+
 </style>
 </head>
 
@@ -135,31 +132,43 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
 
 <div class="container">
 
-  <!-- Hero / Über mich -->
+  <!-- Über mich -->
   <div id="about" class="card">
-    <img src="https://via.placeholder.com/180" alt="Photo de Kuete Kamga">
+    <img src="kuete.jpg" alt="Photo de Kuete Kamga">
     <h2 data-key="about-title">Über mich</h2>
     <p data-key="about-text">Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.</p>
   </div>
 
-  <!-- Skills -->
+  <!-- Skills défilantes -->
   <div id="skills" class="card">
     <h2 data-key="skills-title">Skills</h2>
-    <div class="skill-bar">
-      <div class="label"><span>HTML</span> <span>90%</span></div>
-      <div class="bar"><div class="progress" style="animation: fillHtml 2s ease-out forwards;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="label"><span>CSS</span> <span>85%</span></div>
-      <div class="bar"><div class="progress" style="animation: fillCss 2s ease-out forwards;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="label"><span>JavaScript</span> <span>80%</span></div>
-      <div class="bar"><div class="progress" style="animation: fillJs 2s ease-out forwards;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <div class="label"><span>Java</span> <span>75%</span></div>
-      <div class="bar"><div class="progress" style="animation: fillJava 2s ease-out forwards;"></div></div>
+    <div class="skills-container">
+      <div class="skills-track">
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+          <span>HTML</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+          <span>CSS</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+          <span>JavaScript</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+          <span>Java</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+          <span>Git</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+          <span>React</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -252,16 +261,6 @@ document.querySelectorAll('.dropdown-content a').forEach(link=>{
     });
   });
 });
-
-// Skills bar animation
-const style=document.createElement('style');
-style.innerHTML=`
-@keyframes fillHtml { from {width:0%;} to {width:90%;} }
-@keyframes fillCss { from {width:0%;} to {width:85%;} }
-@keyframes fillJs { from {width:0%;} to {width:80%;} }
-@keyframes fillJava { from {width:0%;} to {width:75%;} }
-`;
-document.head.appendChild(style);
 </script>
 
 </body>
