@@ -6,148 +6,116 @@
 <title>Portfolio – Kuete Kamga</title>
 
 <style>
-/* ----------------- PALETTE DEV ----------------- */
-:root{
-  --bg:#020617;
-  --card:#0f172a;
-  --border:#1e293b;
-  --text:#e2e8f0;
-  --muted:#94a3b8;
-  --title:#f1f5f9;
-  --primary:#8b5cf6; /* violet dev */
-}
-
-body{
+body {
   margin:0;
   font-family:'Segoe UI', sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  color:#ccc;
+  background:black;
   transition:0.3s;
 }
 a { text-decoration:none; color:inherit; }
 
-/* ----------------- HEADER ----------------- */
+/* Header sticky */
 header {
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
-  background:rgba(2,6,23,0.8);
-  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,0.7);
   position:sticky;
   top:0;
   z-index:100;
-  border-bottom:1px solid var(--border);
+  transition:0.3s;
 }
-
-.header-left h1 {
-  color:var(--title);
-  font-size:1.5em;
-  margin:0;
-}
-
+.header-left h1 { color:#8a2be2; font-size:1.5em; margin:0; }
 .header-right { display:flex; gap:25px; align-items:center; }
 
 /* Dropdown langue avec globe */
 .dropdown { position:relative; cursor:pointer; transition: transform 0.3s; }
-.dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(2,6,23,0.9); border-radius:8px; overflow:hidden; }
-.dropdown-content a { display:block; padding:10px 16px; color:var(--text); font-size:1em; transition:0.2s; }
-.dropdown-content a:hover { background:var(--primary); color:white; }
+.dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; }
+.dropdown-content a { display:block; padding:10px 16px; color:#fff; font-size:1.1em; transition:0.2s; }
+.dropdown-content a:hover { background:#8a2be2; color:white; }
 .dropdown:hover .dropdown-content { display:block; }
 
 /* Toggle sombre/clair */
 .mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
 .mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
-/* ----------------- CONTAINER ----------------- */
+/* Container */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
 
-/* ----------------- ÜBER MICH ----------------- */
-#about img{
+/* Über mich */
+#about img {
   width:180px;
   height:180px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid var(--primary);
+  border:3px solid #8a2be2;
   margin-bottom:15px;
 }
-#about p{ max-width:700px; margin:auto; font-size:1.1em; line-height:1.6em; color:var(--muted); }
+#about p { max-width:700px; margin:auto; font-size:1.1em; line-height:1.6em; }
 
-/* ----------------- SKILLS ----------------- */
+/* Skills défilantes */
 .skills-container { overflow:hidden; width:100%; margin-top:20px; position: relative; }
 .skills-track { display:flex; width:max-content; gap:50px; animation: scrollSkills 30s linear infinite; }
 .skills-container:hover .skills-track { animation-play-state: paused; }
 .skill { display:flex; flex-direction:column; align-items:center; min-width:110px; transition: transform 0.3s; }
-.skill:hover { transform: scale(1.15); box-shadow:0 0 20px var(--primary); }
+.skill:hover { transform: scale(1.15); }
 .skill img { width:65px; height:65px; margin-bottom:6px; }
-.skill span { font-size:0.9em; color:var(--muted); }
-
-/* Skill bar */
-.skill-bar {
-  width:80%;
-  height:6px;
-  background:var(--border);
-  border-radius:3px;
-  margin-top:5px;
-  overflow:hidden;
-}
-.skill-fill {
-  height:100%;
-  background:var(--primary);
-  width:0;
-  border-radius:3px;
-  animation: fillSkill 2s forwards;
-}
-@keyframes fillSkill {
-  to { width: var(--fill-width, 100%); }
-}
-
+.skill span { font-size:0.9em; }
 @keyframes scrollSkills { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ----------------- SECTIONS ----------------- */
+/* Sections */
 section { padding:80px 20px; }
-section h2 { color:var(--title); font-size:24px; margin-bottom:25px; }
-.card{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:40px 20px; margin-bottom:60px; box-shadow:0 5px 20px rgba(0,0,0,0.25); transition:0.5s; }
+section h2 { color:#8a2be2; margin-bottom:25px; }
+.card { margin-bottom:50px; }
 
-/* ----------------- FADE-IN ----------------- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ----------------- BERUFSERFAHRUNG ----------------- */
+/* Berufserfahrung */
 table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }
-td, th { border:1px solid var(--border); padding:10px; text-align:left; color:var(--text); }
-th { background:var(--primary); color:white; }
+td, th { border:1px solid #8a2be2; padding:10px; text-align:left; }
+th { background:#8a2be2; color:black; }
 
-/* ----------------- CERTIFICATIONS ----------------- */
-.cert{ display:flex; gap:15px; background:var(--card); border:1px solid var(--border); padding:20px; border-radius:12px; margin-bottom:15px; transition:0.25s; }
-.cert:hover{ transform:translateY(-4px); box-shadow:0 10px 30px rgba(139,92,246,0.15); border-color:var(--primary); }
-.cert-header{ display:flex; gap:15px; align-items:flex-start; }
-.cert-logo{ width:42px; height:42px; object-fit:contain; }
-.cert h3{ margin:0; color:var(--title); font-size:16px; }
-.cert p{ margin:2px 0; color:var(--muted); font-size:14px; }
-.cert button{ background:transparent; border:1px solid var(--primary); color:var(--primary); padding:5px 12px; border-radius:6px; margin-top:6px; cursor:pointer; transition:0.2s; }
-.cert button:hover{ background:var(--primary); color:white; }
+/* Bescheinigungen und Zertifikate */
+.cert { 
+  background: rgba(0,0,0,0.5); 
+  padding:20px; 
+  border-radius:10px; 
+  margin-bottom:20px; 
+  text-align:left;
+  display:flex;
+  gap:15px;
+  align-items:flex-start;
+  transition: transform 0.2s, background 0.3s;
+}
+.cert:hover { background: rgba(138,43,226,0.2); transform: translateY(-5px);}
+.cert-logo { width:50px; height:50px; object-fit:contain; }
+.cert-content h3 { margin:0 0 5px 0; color:#8a2be2; }
+.cert-content p { margin:3px 0; }
+.cert-content button { 
+  background:#8a2be2; 
+  color:white; 
+  border:none; 
+  padding:5px 12px; 
+  border-radius:5px; 
+  cursor:pointer; 
+  margin-top:5px;
+  transition:0.2s;
+}
+.cert-content button:hover { background:#ffaa00; }
 
-/* ----------------- FORMULAIRE ----------------- */
+/* Formulaire */
 form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
 input, textarea { padding:10px; border-radius:5px; border:none; font-size:1em; }
-input[type="submit"]{ background:var(--primary); color:white; cursor:pointer; transition:0.2s; }
-input[type="submit"]:hover{ background:#7c3aed; }
+input[type="submit"] { background:#8a2be2; color:white; cursor:pointer; transition:0.2s; }
+input[type="submit"]:hover { background:#ffaa00; }
 
-/* ----------------- MODE CLAIR ----------------- */
-body.light-mode{ background:white; color:black; }
-body.light-mode .card{ background:#f5f5f5; border-color:#ddd; }
-body.light-mode table{ border-color:#8b5cf6; }
-body.light-mode th{ background:#8b5cf6; color:white; }
-body.light-mode .dropdown-content{ background:white; }
-body.light-mode .dropdown-content a:hover{ background:#8b5cf6; color:white; }
+/* Mode clair */
+body.light-mode { background:white; color:black; }
+body.light-mode header { background:rgba(255,255,255,0.8);}
+body.light-mode .dropdown-content { background:rgba(255,255,255,0.9);}
+body.light-mode .dropdown-content a:hover { background:#8a2be2; color:white; }
+body.light-mode table { border-color:#8a2be2; }
+body.light-mode th { background:#8a2be2; color:white; }
 
 </style>
 </head>
@@ -156,6 +124,7 @@ body.light-mode .dropdown-content a:hover{ background:#8b5cf6; color:white; }
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
   <div class="header-right">
+    <!-- Globe pour traduction -->
     <div class="dropdown">
       <span style="font-size:1.5em; cursor:pointer;">🌐</span>
       <div class="dropdown-content">
@@ -164,8 +133,10 @@ body.light-mode .dropdown-content a:hover{ background:#8b5cf6; color:white; }
         <a href="#">Français</a>
       </div>
     </div>
+
+    <!-- Toggle sombre/clair -->
     <div class="mode-toggle">
-      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#8b5cf6" viewBox="0 0 24 24">
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#8a2be2" viewBox="0 0 24 24">
         <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
       </svg>
     </div>
@@ -175,63 +146,31 @@ body.light-mode .dropdown-content a:hover{ background:#8b5cf6; color:white; }
 <div class="container">
 
   <!-- Über mich -->
-  <section id="about" class="card fade-in">
+  <section id="about" class="card">
     <h2 data-key="about-title">Über mich</h2>
-    <img src="kuete.jpeg" alt="Photo de Kuete Kamga">
+    <img src="images/kuete.jpeg" alt="Photo de Kuete Kamga">
     <p data-key="about-text">Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.</p>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="card fade-in">
+  <section id="skills" class="card">
     <h2 data-key="skills-title">Skills</h2>
     <div class="skills-container">
       <div class="skills-track">
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-          <span>HTML</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:90%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
-          <span>CSS</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:85%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
-          <span>JavaScript</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:80%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
-          <span>Java</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:70%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg">
-          <span>Angular</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:75%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-          <span>Python</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:80%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
-          <span>SQL</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:70%"></div></div>
-        </div>
-        <div class="skill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-          <span>Git</span>
-          <div class="skill-bar"><div class="skill-fill" style="--fill-width:80%"></div></div>
-        </div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><span>Java</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"><span>Angular</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"><span>SQL</span></div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
       </div>
     </div>
   </section>
 
   <!-- Berufserfahrung -->
-  <section id="experience" class="card fade-in">
+  <section id="experience" class="card">
     <h2>Berufserfahrung / Experience</h2>
     <table>
       <tr><th>Position</th><th>Beschreibung</th></tr>
@@ -240,65 +179,57 @@ body.light-mode .dropdown-content a:hover{ background:#8b5cf6; color:white; }
   </section>
 
   <!-- Bescheinigungen und Zertifikate -->
-  <section id="certifications" class="card fade-in">
-    <h2>Bescheinigungen und Zertifikate</h2>
+  <section id="certifications" class="card">
+    <h2 data-key="certifications-title">Bescheinigungen und Zertifikate</h2>
 
     <div class="cert">
-      <div class="cert-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="cert-logo">
-        <div>
-          <h3>Grundkurs Webtechniken 1: HTML</h3>
-          <p>LinkedIn</p>
-          <p>Ausgestellt: Feb. 2026</p>
-          <button onclick="window.open('nachweise/html-grundkurs.pdf','_blank')">Nachweis anzeigen</button>
-          <p>Kenntnisse: Webdesign</p>
-        </div>
+      <img src="images/linkedin.png" class="cert-logo">
+      <div class="cert-content">
+        <h3 data-key="cert1-title">Grundkurs Webtechniken 1: HTML</h3>
+        <p data-key="cert1-platform">LinkedIn</p>
+        <p data-key="cert1-date">Ausgestellt: Feb. 2026</p>
+        <button data-key="cert1-btn" onclick="window.open('nachweise/html-grundkurs.pdf','_blank')">Nachweis anzeigen</button>
+        <p data-key="cert1-skill">Kenntnisse: Webdesign</p>
       </div>
     </div>
 
     <div class="cert">
-      <div class="cert-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="cert-logo">
-        <div>
-          <h3>Grundlagen der Webprogrammierung: Meine erste Website</h3>
-          <p>LinkedIn</p>
-          <p>Ausgestellt: Feb. 2026</p>
-          <button onclick="window.open('nachweise/erste-website.pdf','_blank')">Nachweis anzeigen</button>
-          <p>Kenntnisse: Webentwicklung</p>
-        </div>
+      <img src="images/linkedin.png" class="cert-logo">
+      <div class="cert-content">
+        <h3 data-key="cert2-title">Grundlagen der Webprogrammierung: Meine erste Website</h3>
+        <p data-key="cert2-platform">LinkedIn</p>
+        <p data-key="cert2-date">Ausgestellt: Feb. 2026</p>
+        <button data-key="cert2-btn" onclick="window.open('nachweise/erste-website.pdf','_blank')">Nachweis anzeigen</button>
+        <p data-key="cert2-skill">Kenntnisse: Webentwicklung</p>
       </div>
     </div>
 
     <div class="cert">
-      <div class="cert-header">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="cert-logo">
-        <div>
-          <h3>Responsive Webdesign - Grundlagen</h3>
-          <p>LinkedIn</p>
-          <p>Ausgestellt: Feb. 2026</p>
-          <button onclick="window.open('nachweise/responsive.pdf','_blank')">Nachweis anzeigen</button>
-          <p>Kenntnisse: Responsive Webdesign</p>
-        </div>
+      <img src="images/linkedin.png" class="cert-logo">
+      <div class="cert-content">
+        <h3 data-key="cert3-title">Responsive Webdesign - Grundlagen</h3>
+        <p data-key="cert3-platform">LinkedIn</p>
+        <p data-key="cert3-date">Ausgestellt: Feb. 2026</p>
+        <button data-key="cert3-btn" onclick="window.open('nachweise/responsive.pdf','_blank')">Nachweis anzeigen</button>
+        <p data-key="cert3-skill">Kenntnisse: Responsive Webdesign</p>
       </div>
     </div>
 
     <div class="cert">
-      <div class="cert-header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Uniwunder_logo.png" class="cert-logo">
-        <div>
-          <h3>Microsoft Office Specialist: Excel</h3>
-          <p>Uniwunder</p>
-          <p>Ausgestellt: Sept. 2025</p>
-          <button onclick="window.open('nachweise/excel.pdf','_blank')">Nachweis anzeigen</button>
-          <p>Kenntnisse: Microsoft Excel</p>
-        </div>
+      <img src="images/uniwunder.png" class="cert-logo">
+      <div class="cert-content">
+        <h3 data-key="cert4-title">Microsoft Office Specialist: Excel</h3>
+        <p data-key="cert4-platform">Uniwunder</p>
+        <p data-key="cert4-date">Ausgestellt: Sept. 2025</p>
+        <button data-key="cert4-btn" onclick="window.open('nachweise/excel.pdf','_blank')">Nachweis anzeigen</button>
+        <p data-key="cert4-skill">Kenntnisse: Microsoft Excel</p>
       </div>
     </div>
 
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="card fade-in">
+  <section id="contact" class="card">
     <h2>Contact</h2>
     <form>
       <input type="text" placeholder="Nom" required>
@@ -314,21 +245,100 @@ body.light-mode .dropdown-content a:hover{ background:#8b5cf6; color:white; }
 // Toggle sombre/clair
 const toggle=document.querySelector('.mode-toggle');
 const icon=document.getElementById('moon-icon');
-toggle.addEventListener('click',()=>{
+toggle.addEventListener('click',()=> {
   document.body.classList.toggle('light-mode');
-  if(document.body.classList.contains('light-mode')){
+  if(document.body.classList.contains('light-mode')) {
     icon.setAttribute('fill','#ffaa00');
-  }else{
-    icon.setAttribute('fill','#8b5cf6');
+  } else{
+    icon.setAttribute('fill','#8a2be2');
   }
 });
 
 // Traduction simple
 const translations={
-"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","skills-title":"Compétences"},
-"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","skills-title":"Skills"},
-"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","skills-title":"Skills"}
+"Français":{
+  "portfolio-title":"Portfolio",
+  "about-title":"À propos de moi",
+  "about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.",
+  "skills-title":"Compétences",
+  "certifications-title":"Certificats et attestations",
+  "cert1-title":"Cours de base Techniques Web 1 : HTML",
+  "cert1-platform":"LinkedIn",
+  "cert1-date":"Publié : Fév. 2026",
+  "cert1-btn":"Voir le certificat",
+  "cert1-skill":"Compétences : Webdesign",
+  "cert2-title":"Bases du développement web : Mon premier site",
+  "cert2-platform":"LinkedIn",
+  "cert2-date":"Publié : Fév. 2026",
+  "cert2-btn":"Voir le certificat",
+  "cert2-skill":"Compétences : Webdéveloppement",
+  "cert3-title":"Responsive Webdesign - Bases",
+  "cert3-platform":"LinkedIn",
+  "cert3-date":"Publié : Fév. 2026",
+  "cert3-btn":"Voir le certificat",
+  "cert3-skill":"Compétences : Responsive Webdesign",
+  "cert4-title":"Microsoft Office Specialist : Excel",
+  "cert4-platform":"Uniwunder",
+  "cert4-date":"Publié : Sept. 2025",
+  "cert4-btn":"Voir le certificat",
+  "cert4-skill":"Compétences : Microsoft Excel"
+},
+"English":{
+  "portfolio-title":"Portfolio",
+  "about-title":"About Me",
+  "about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.",
+  "skills-title":"Skills",
+  "certifications-title":"Certificates",
+  "cert1-title":"Basic Web Techniques 1: HTML",
+  "cert1-platform":"LinkedIn",
+  "cert1-date":"Issued: Feb. 2026",
+  "cert1-btn":"Show certificate",
+  "cert1-skill":"Skills: Web design",
+  "cert2-title":"Foundations of Web Programming: My First Website",
+  "cert2-platform":"LinkedIn",
+  "cert2-date":"Issued: Feb. 2026",
+  "cert2-btn":"Show certificate",
+  "cert2-skill":"Skills: Web development",
+  "cert3-title":"Responsive Web Design - Basics",
+  "cert3-platform":"LinkedIn",
+  "cert3-date":"Issued: Feb. 2026",
+  "cert3-btn":"Show certificate",
+  "cert3-skill":"Skills: Responsive Web design",
+  "cert4-title":"Microsoft Office Specialist: Excel",
+  "cert4-platform":"Uniwunder",
+  "cert4-date":"Issued: Sept. 2025",
+  "cert4-btn":"Show certificate",
+  "cert4-skill":"Skills: Microsoft Excel"
+},
+"Deutsch":{
+  "portfolio-title":"Portfolio",
+  "about-title":"Über mich",
+  "about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.",
+  "skills-title":"Skills",
+  "certifications-title":"Bescheinigungen und Zertifikate",
+  "cert1-title":"Grundkurs Webtechniken 1: HTML",
+  "cert1-platform":"LinkedIn",
+  "cert1-date":"Ausgestellt: Feb. 2026",
+  "cert1-btn":"Nachweis anzeigen",
+  "cert1-skill":"Kenntnisse: Webdesign",
+  "cert2-title":"Grundlagen der Webprogrammierung: Meine erste Website",
+  "cert2-platform":"LinkedIn",
+  "cert2-date":"Ausgestellt: Feb. 2026",
+  "cert2-btn":"Nachweis anzeigen",
+  "cert2-skill":"Kenntnisse: Webentwicklung",
+  "cert3-title":"Responsive Webdesign - Grundlagen",
+  "cert3-platform":"LinkedIn",
+  "cert3-date":"Ausgestellt: Feb. 2026",
+  "cert3-btn":"Nachweis anzeigen",
+  "cert3-skill":"Kenntnisse: Responsive Webdesign",
+  "cert4-title":"Microsoft Office Specialist: Excel",
+  "cert4-platform":"Uniwunder",
+  "cert4-date":"Ausgestellt: Sept. 2025",
+  "cert4-btn":"Nachweis anzeigen",
+  "cert4-skill":"Kenntnisse: Microsoft Excel"
+}
 };
+
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
   link.addEventListener('click',e=>{
     const lang=e.target.textContent;
@@ -338,20 +348,6 @@ document.querySelectorAll('.dropdown-content a').forEach(link=>{
     });
   });
 });
-
-// Fade-in au scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.1 };
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-
 </script>
 
 </body>
