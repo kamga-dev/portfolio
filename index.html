@@ -30,9 +30,8 @@ header {
 .header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
 .header-right { display:flex; gap:25px; align-items:center; }
 
-/* Dropdown langue */
-.dropdown { position:relative; cursor:pointer; color:#ccc; font-size:1.5em; transition: transform 0.3s, color 0.3s; }
-.dropdown:hover svg { transform: scale(1.3) rotate(-10deg); color:#00c6ff; }
+/* Dropdown langue avec globe */
+.dropdown { position:relative; cursor:pointer; transition: transform 0.3s; }
 .dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; }
 .dropdown-content a { display:block; padding:10px 16px; color:#fff; font-size:1em; transition:0.2s; }
 .dropdown-content a:hover { background:#00c6ff; color:black; }
@@ -71,10 +70,34 @@ section { padding:80px 20px; }
 section h2 { color:#00c6ff; margin-bottom:25px; }
 .card { margin-bottom:50px; }
 
-/* Table expérience / Zertifikationen */
+/* Berufserfahrung */
 table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }
 td, th { border:1px solid #00c6ff; padding:10px; text-align:left; }
 th { background:#00c6ff; color:black; }
+
+/* Bescheinigungen und Zertifikate */
+.cert { 
+  background: rgba(0,0,0,0.5); 
+  padding:20px; 
+  border-radius:10px; 
+  margin-bottom:20px; 
+  text-align:left;
+  transition: transform 0.2s, background 0.3s;
+}
+.cert:hover { background: rgba(0,198,255,0.2); transform: translateY(-5px);}
+.cert h3 { margin:0 0 5px 0; color:#00c6ff; }
+.cert p { margin:3px 0; }
+.cert button { 
+  background:#00c6ff; 
+  color:black; 
+  border:none; 
+  padding:5px 12px; 
+  border-radius:5px; 
+  cursor:pointer; 
+  margin-top:5px;
+  transition:0.2s;
+}
+.cert button:hover { background:#ffaa00; }
 
 /* Formulaire */
 form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
@@ -97,16 +120,17 @@ body.light-mode th { background:#00c6ff; color:white; }
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
   <div class="header-right">
+    <!-- Globe pour traduction -->
     <div class="dropdown">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ccc" viewBox="0 0 24 24">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6 12h-4v-4h-4v4H6v-2h4V6h4v4h4v2z"/>
-      </svg>
+      <span style="font-size:1.5em; cursor:pointer;">🌐</span>
       <div class="dropdown-content">
         <a href="#">English</a>
         <a href="#">Deutsch</a>
         <a href="#">Français</a>
       </div>
     </div>
+
+    <!-- Toggle sombre/clair -->
     <div class="mode-toggle">
       <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00c6ff" viewBox="0 0 24 24">
         <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
@@ -143,21 +167,48 @@ body.light-mode th { background:#00c6ff; color:white; }
 
   <!-- Berufserfahrung -->
   <section id="experience" class="card">
-    <h2>Berufserfahrung </h2>
+    <h2>Berufserfahrung / Experience</h2>
     <table>
       <tr><th>Position</th><th>Beschreibung</th></tr>
       <tr><td>Werkstudent / Praktikum</td><td>Développement logiciel, Java, HTML, CSS, JS, participation à projets étudiants.</td></tr>
     </table>
   </section>
 
-  <!-- Zertifikationen -->
+  <!-- Bescheinigungen und Zertifikate -->
   <section id="certifications" class="card">
-    <h2>Zertifikationen </h2>
-    <table>
-      <tr><th>Nom</th><th>Institution</th></tr>
-      <tr><td>Java Grundlagen</td><td>Plattform XYZ</td></tr>
-      <tr><td>Webentwicklung</td><td>Plattform ABC</td></tr>
-    </table>
+    <h2>Bescheinigungen und Zertifikate</h2>
+
+    <div class="cert">
+      <h3>Grundkurs Webtechniken 1: HTML</h3>
+      <p>LinkedIn</p>
+      <p>Ausgestellt: Feb. 2026</p>
+      <button onclick="window.open('nachweise/html-grundkurs.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Webdesign</p>
+    </div>
+
+    <div class="cert">
+      <h3>Grundlagen der Webprogrammierung: Meine erste Website</h3>
+      <p>LinkedIn</p>
+      <p>Ausgestellt: Feb. 2026</p>
+      <button onclick="window.open('nachweise/erste-website.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Webentwicklung</p>
+    </div>
+
+    <div class="cert">
+      <h3>Responsive Webdesign - Grundlagen</h3>
+      <p>LinkedIn</p>
+      <p>Ausgestellt: Feb. 2026</p>
+      <button onclick="window.open('nachweise/responsive.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Responsive Webdesign</p>
+    </div>
+
+    <div class="cert">
+      <h3>Microsoft Office Specialist: Excel</h3>
+      <p>Uniwunder</p>
+      <p>Ausgestellt: Sept. 2025</p>
+      <button onclick="window.open('nachweise/excel.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Microsoft Excel</p>
+    </div>
   </section>
 
   <!-- Contact -->
