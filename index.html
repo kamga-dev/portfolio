@@ -1,59 +1,48 @@
-<!DOCTYPE html>
+bon voici le code actuelle <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Kuete Kamga</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
-/* Base */
 body {
   margin:0;
-  font-family:'Roboto', sans-serif;
-  color:#eee;
-  background: #0a0a0a;
-  scroll-behavior: smooth;
-  transition: background 0.4s, color 0.4s;
+  font-family:'Segoe UI', sans-serif;
+  color:#ccc;
+  background:black;
+  transition:0.3s;
 }
 a { text-decoration:none; color:inherit; }
 
-/* Header */
+/* Header sticky */
 header {
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
-  background:rgba(10,10,10,0.9);
+  background:rgba(0,0,0,0.7);
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 2px 8px rgba(0,0,0,0.4);
+  transition:0.3s;
 }
-.header-left h1 { color:#8a2be2; font-size:1.8em; margin:0; font-weight:700; letter-spacing:1px; }
+.header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
 .header-right { display:flex; gap:25px; align-items:center; }
 
-/* Dropdown langue */
-.dropdown { position:relative; cursor:pointer; }
-.dropdown-content { display:none; position:absolute; right:0; top:35px; background:rgba(20,20,20,0.95); border-radius:8px; overflow:hidden; }
-.dropdown-content a { display:block; padding:10px 16px; color:#fff; font-size:1.1em; transition:0.2s; }
-.dropdown-content a:hover { background:#8a2be2; color:white; }
+/* Dropdown langue avec globe */
+.dropdown { position:relative; cursor:pointer; transition: transform 0.3s; }
+.dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; }
+.dropdown-content a { display:block; padding:10px 16px; color:#fff; font-size:1em; transition:0.2s; }
+.dropdown-content a:hover { background:#00c6ff; color:black; }
 .dropdown:hover .dropdown-content { display:block; }
 
 /* Toggle sombre/clair */
-.mode-toggle svg { cursor:pointer; width:28px; height:28px; transition: transform 0.3s, fill 0.3s; }
+.mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
 .mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
 /* Container */
-.container { max-width:1000px; margin:auto; padding:120px 20px 60px 20px; text-align:center; }
-
-/* Sections */
-section { padding:80px 20px; opacity:0; transform: translateY(40px); transition: all 0.8s ease-out; }
-section.visible { opacity:1; transform: translateY(0); }
-section h2 { color:#8a2be2; font-size:2em; margin-bottom:25px; position:relative; }
-section h2::after { content:''; width:60px; height:3px; background:#8a2be2; display:block; margin:8px auto 0 auto; border-radius:2px; }
+.container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
 
 /* Über mich */
 #about img {
@@ -61,71 +50,68 @@ section h2::after { content:''; width:60px; height:3px; background:#8a2be2; disp
   height:180px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid #8a2be2;
-  margin-bottom:20px;
-  transition: transform 0.3s;
+  border:3px solid #00c6ff;
+  margin-bottom:15px;
 }
-#about img:hover { transform: scale(1.05) rotate(-2deg); }
 #about p { max-width:700px; margin:auto; font-size:1.1em; line-height:1.6em; }
 
-/* Skills défilants */
-.skills-container { overflow:hidden; width:100%; margin-top:40px; position: relative; }
+/* Skills défilantes */
+.skills-container { overflow:hidden; width:100%; margin-top:20px; position: relative; }
 .skills-track { display:flex; width:max-content; gap:50px; animation: scrollSkills 30s linear infinite; }
 .skills-container:hover .skills-track { animation-play-state: paused; }
 .skill { display:flex; flex-direction:column; align-items:center; min-width:110px; transition: transform 0.3s; }
-.skill:hover { transform: scale(1.2) rotate(-2deg); }
-.skill img { width:65px; height:65px; margin-bottom:6px; filter: drop-shadow(0 0 5px #8a2be2); }
-.skill span { font-size:0.9em; font-weight:600; color:#ccc; }
-
-/* Skills animation */
+.skill:hover { transform: scale(1.15); }
+.skill img { width:65px; height:65px; margin-bottom:6px; }
+.skill span { font-size:0.9em; }
 @keyframes scrollSkills { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* Berufserfahrung */
-table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; background:rgba(20,20,20,0.6); border-radius:10px; overflow:hidden; }
-td, th { border:1px solid #8a2be2; padding:10px; text-align:left; }
-th { background:#8a2be2; color:black; }
+/* Sections */
+section { padding:80px 20px; }
+section h2 { color:#00c6ff; margin-bottom:25px; }
+.card { margin-bottom:50px; }
 
-/* Certifications */
+/* Berufserfahrung */
+table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }
+td, th { border:1px solid #00c6ff; padding:10px; text-align:left; }
+th { background:#00c6ff; color:black; }
+
+/* Bescheinigungen und Zertifikate */
 .cert { 
-  background: rgba(20,20,20,0.6); 
+  background: rgba(0,0,0,0.5); 
   padding:20px; 
-  border-radius:12px; 
+  border-radius:10px; 
   margin-bottom:20px; 
-  display:flex;
-  gap:20px;
-  align-items:flex-start;
-  transition: transform 0.3s, background 0.3s;
+  text-align:left;
+  transition: transform 0.2s, background 0.3s;
 }
-.cert:hover { background: rgba(138,43,226,0.3); transform: translateY(-5px) scale(1.02);}
-.cert-logo { width:50px; height:50px; object-fit:contain; filter: drop-shadow(0 0 5px #8a2be2);}
-.cert-content h3 { margin:0 0 5px 0; color:#8a2be2; font-size:1.1em; font-weight:600; }
-.cert-content p { margin:3px 0; font-size:0.95em; }
-.cert-content button { 
-  background:#8a2be2; 
-  color:white; 
+.cert:hover { background: rgba(0,198,255,0.2); transform: translateY(-5px);}
+.cert h3 { margin:0 0 5px 0; color:#00c6ff; }
+.cert p { margin:3px 0; }
+.cert button { 
+  background:#00c6ff; 
+  color:black; 
   border:none; 
   padding:5px 12px; 
   border-radius:5px; 
   cursor:pointer; 
   margin-top:5px;
-  transition:0.3s;
+  transition:0.2s;
 }
-.cert-content button:hover { background:#ffaa00; }
+.cert button:hover { background:#ffaa00; }
 
-/* Form */
+/* Formulaire */
 form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
-input, textarea { padding:12px; border-radius:5px; border:none; font-size:1em; background:#111; color:white; }
-input[type="submit"] { background:#8a2be2; color:white; cursor:pointer; transition:0.3s; font-weight:700; }
+input, textarea { padding:10px; border-radius:5px; border:none; font-size:1em; }
+input[type="submit"] { background:#00c6ff; color:black; cursor:pointer; transition:0.2s; }
 input[type="submit"]:hover { background:#ffaa00; }
 
 /* Mode clair */
 body.light-mode { background:white; color:black; }
-body.light-mode header { background:rgba(255,255,255,0.9);}
-body.light-mode .dropdown-content { background:rgba(255,255,255,0.95);}
-body.light-mode .dropdown-content a:hover { background:#8a2be2; color:white; }
-body.light-mode table { border-color:#8a2be2; }
-body.light-mode th { background:#8a2be2; color:white; }
-body.light-mode input, body.light-mode textarea { background:#f5f5f5; color:black; }
+body.light-mode header { background:rgba(255,255,255,0.8);}
+body.light-mode .dropdown-content { background:rgba(255,255,255,0.9);}
+body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
+body.light-mode table { border-color:#00c6ff; }
+body.light-mode th { background:#00c6ff; color:white; }
 
 </style>
 </head>
@@ -134,6 +120,7 @@ body.light-mode input, body.light-mode textarea { background:#f5f5f5; color:blac
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
   <div class="header-right">
+    <!-- Globe pour traduction -->
     <div class="dropdown">
       <span style="font-size:1.5em; cursor:pointer;">🌐</span>
       <div class="dropdown-content">
@@ -142,8 +129,10 @@ body.light-mode input, body.light-mode textarea { background:#f5f5f5; color:blac
         <a href="#">Français</a>
       </div>
     </div>
+
+    <!-- Toggle sombre/clair -->
     <div class="mode-toggle">
-      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#8a2be2" viewBox="0 0 24 24">
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00c6ff" viewBox="0 0 24 24">
         <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
       </svg>
     </div>
@@ -155,7 +144,7 @@ body.light-mode input, body.light-mode textarea { background:#f5f5f5; color:blac
   <!-- Über mich -->
   <section id="about" class="card">
     <h2 data-key="about-title">Über mich</h2>
-    <img src="images/kuete.jpeg" alt="Photo de Kuete Kamga">
+    <img src="kuete.jpeg" alt="Photo de Kuete Kamga">
     <p data-key="about-text">Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.</p>
   </section>
 
@@ -185,43 +174,41 @@ body.light-mode input, body.light-mode textarea { background:#f5f5f5; color:blac
     </table>
   </section>
 
-  <!-- Certifications -->
+  <!-- Bescheinigungen und Zertifikate -->
   <section id="certifications" class="card">
-    <h2 data-key="certifications-title">Bescheinigungen und Zertifikate</h2>
+    <h2>Bescheinigungen und Zertifikate</h2>
 
     <div class="cert">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" class="cert-logo">
-      <div class="cert-content">
-        <h3 data-key="cert1-title">Grundkurs Webtechniken 1: HTML</h3>
-        <p data-key="cert1-platform">LinkedIn</p>
-        <p data-key="cert1-date">Ausgestellt: Feb. 2026</p>
-        <button data-key="cert1-btn" onclick="window.open('nachweise/html-grundkurs.pdf','_blank')">Nachweis anzeigen</button>
-        <p data-key="cert1-skill">Kenntnisse: Webdesign</p>
-      </div>
+      <h3>Grundkurs Webtechniken 1: HTML</h3>
+      <p>LinkedIn</p>
+      <p>Ausgestellt: Feb. 2026</p>
+      <button onclick="window.open('nachweise/html-grundkurs.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Webdesign</p>
     </div>
 
     <div class="cert">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" class="cert-logo">
-      <div class="cert-content">
-        <h3 data-key="cert2-title">Grundlagen der Webprogrammierung: Meine erste Website</h3>
-        <p data-key="cert2-platform">LinkedIn</p>
-        <p data-key="cert2-date">Ausgestellt: Feb. 2026</p>
-        <button data-key="cert2-btn" onclick="window.open('nachweise/erste-website.pdf','_blank')">Nachweis anzeigen</button>
-        <p data-key="cert2-skill">Kenntnisse: Webentwicklung</p>
-      </div>
+      <h3>Grundlagen der Webprogrammierung: Meine erste Website</h3>
+      <p>LinkedIn</p>
+      <p>Ausgestellt: Feb. 2026</p>
+      <button onclick="window.open('nachweise/erste-website.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Webentwicklung</p>
     </div>
 
     <div class="cert">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" class="cert-logo">
-      <div class="cert-content">
-        <h3 data-key="cert4-title">Microsoft Office Specialist: Excel</h3>
-        <p data-key="cert4-platform">Uniwunder</p>
-        <p data-key="cert4-date">Ausgestellt: Sept. 2025</p>
-        <button data-key="cert4-btn" onclick="window.open('nachweise/excel.pdf','_blank')">Nachweis anzeigen</button>
-        <p data-key="cert4-skill">Kenntnisse: Microsoft Excel</p>
-      </div>
+      <h3>Responsive Webdesign - Grundlagen</h3>
+      <p>LinkedIn</p>
+      <p>Ausgestellt: Feb. 2026</p>
+      <button onclick="window.open('nachweise/responsive.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Responsive Webdesign</p>
     </div>
 
+    <div class="cert">
+      <h3>Microsoft Office Specialist: Excel</h3>
+      <p>Uniwunder</p>
+      <p>Ausgestellt: Sept. 2025</p>
+      <button onclick="window.open('nachweise/excel.pdf', '_blank')">Nachweis anzeigen</button>
+      <p>Kenntnisse: Microsoft Excel</p>
+    </div>
   </section>
 
   <!-- Contact -->
@@ -241,52 +228,21 @@ body.light-mode input, body.light-mode textarea { background:#f5f5f5; color:blac
 // Toggle sombre/clair
 const toggle=document.querySelector('.mode-toggle');
 const icon=document.getElementById('moon-icon');
-toggle.addEventListener('click',()=> {
+toggle.addEventListener('click',()=>{
   document.body.classList.toggle('light-mode');
-  if(document.body.classList.contains('light-mode')) icon.setAttribute('fill','#ffaa00');
-  else icon.setAttribute('fill','#8a2be2');
+  if(document.body.classList.contains('light-mode')){
+    icon.setAttribute('fill','#ffaa00');
+  } else{
+    icon.setAttribute('fill','#00c6ff');
+  }
 });
 
 // Traduction simple
 const translations={
-  "Français": {
-    "portfolio-title":"Portfolio",
-    "about-title":"À propos de moi",
-    "about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.",
-    "skills-title":"Compétences",
-    "certifications-title":"Certificats et attestations",
-    "cert1-title":"Cours de base Techniques Web 1 : HTML",
-    "cert1-platform":"LinkedIn",
-    "cert1-date":"Publié : Fév. 2026",
-    "cert1-btn":"Voir le certificat",
-    "cert1-skill":"Compétences : Webdesign",
-    "cert2-title":"Bases du développement web : Mon premier site",
-    "cert2-platform":"LinkedIn",
-    "cert2-date":"Publié : Fév. 2026",
-    "cert2-btn":"Voir le certificat",
-    "cert2-skill":"Compétences : Webdéveloppement",
-    "cert4-title":"Microsoft Office Specialist : Excel",
-    "cert4-platform":"Uniwunder",
-    "cert4-date":"Publié : Sept. 2025",
-    "cert4-btn":"Voir le certificat",
-    "cert4-skill":"Compétences : Microsoft Excel"
-  },
-  "English": {
-    "portfolio-title":"Portfolio",
-    "about-title":"About Me",
-    "about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.",
-    "skills-title":"Skills",
-    "certifications-title":"Certificates"
-  },
-  "Deutsch": {
-    "portfolio-title":"Portfolio",
-    "about-title":"Über mich",
-    "about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.",
-    "skills-title":"Skills",
-    "certifications-title":"Bescheinigungen und Zertifikate"
-  }
+"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","skills-title":"Compétences"},
+"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","skills-title":"Skills"},
+"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","skills-title":"Skills"}
 };
-
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
   link.addEventListener('click',e=>{
     const lang=e.target.textContent;
@@ -296,15 +252,6 @@ document.querySelectorAll('.dropdown-content a').forEach(link=>{
     });
   });
 });
-
-// Scroll reveal
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-  });
-},{threshold:0.2});
-
-document.querySelectorAll('section').forEach(sec=>observer.observe(sec));
 </script>
 
 </body>
