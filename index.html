@@ -6,14 +6,17 @@
 <title>Portfolio – Kuete Kamga</title>
 
 <style>
+/* Reset & global */
 body {
   margin:0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Segoe UI', sans-serif;
   color:#ccc;
-  overflow-x:hidden;
   background:black;
   transition:0.3s;
 }
+a { text-decoration:none; color:inherit; }
+
+/* Header */
 header {
   display:flex;
   justify-content:space-between;
@@ -32,7 +35,7 @@ header {
 .dropdown { position:relative; cursor:pointer; color:#ccc; font-size:1.5em; transition: transform 0.3s, color 0.3s; }
 .dropdown:hover svg { transform: scale(1.3) rotate(-10deg); color:#00c6ff; }
 .dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; }
-.dropdown-content a { display:block; padding:10px 16px; color:#fff; text-decoration:none; font-size:1em; transition:0.2s; }
+.dropdown-content a { display:block; padding:10px 16px; color:#fff; font-size:1em; transition:0.2s; }
 .dropdown-content a:hover { background:#00c6ff; color:black; }
 .dropdown:hover .dropdown-content { display:block; }
 
@@ -40,7 +43,7 @@ header {
 .mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
 .mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
-/* Container */
+/* Container général */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
 
 /* Über mich */
@@ -64,11 +67,29 @@ header {
 .skill span { font-size:0.9em; }
 @keyframes scrollSkills { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+/* Sections */
+section { padding:80px 20px; }
+section h2 { color:#00c6ff; margin-bottom:25px; }
+.card { margin-bottom:50px; }
+
+/* Table expérience / Zertifikationen */
+table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }
+td, th { border:1px solid #00c6ff; padding:10px; text-align:left; }
+th { background:#00c6ff; color:black; }
+
+/* Formulaire */
+form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
+input, textarea { padding:10px; border-radius:5px; border:none; font-size:1em; }
+input[type="submit"] { background:#00c6ff; color:black; cursor:pointer; transition:0.2s; }
+input[type="submit"]:hover { background:#ffaa00; }
+
 /* Mode clair */
 body.light-mode { background:white; color:black; }
 body.light-mode header { background:rgba(255,255,255,0.8);}
 body.light-mode .dropdown-content { background:rgba(255,255,255,0.9);}
 body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
+body.light-mode table { border-color:#00c6ff; }
+body.light-mode th { background:#00c6ff; color:white; }
 
 </style>
 </head>
@@ -98,17 +119,14 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
 <div class="container">
 
   <!-- Über mich -->
-  <div id="about" class="card">
+  <section id="about" class="card">
     <h2 data-key="about-title">À propos de moi</h2>
-    <!-- Photo depuis GitHub -->
-    <img src="https://raw.githubusercontent.com/TonNom/portfolio-kuete/main/kuete.jpg" alt="Photo de Kuete Kamga">
-    <p data-key="about-text">
-      Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.
-    </p>
-  </div>
+    <img src="https://raw.githubusercontent.com/TonNom/portfolio-kuete/main/kuete.jpeg" alt="Photo de Kuete Kamga">
+    <p data-key="about-text">Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.</p>
+  </section>
 
-  <!-- Skills défilantes -->
-  <div id="skills" class="card">
+  <!-- Skills -->
+  <section id="skills" class="card">
     <h2 data-key="skills-title">Compétences</h2>
     <div class="skills-container">
       <div class="skills-track">
@@ -122,7 +140,37 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Berufserfahrung -->
+  <section id="experience" class="card">
+    <h2>Berufserfahrung / Experience</h2>
+    <table>
+      <tr><th>Position</th><th>Beschreibung</th></tr>
+      <tr><td>Werkstudent / Praktikum</td><td>Développement logiciel, Java, HTML, CSS, JS, participation à projets étudiants.</td></tr>
+    </table>
+  </section>
+
+  <!-- Zertifikationen -->
+  <section id="certifications" class="card">
+    <h2>Zertifikationen / Certifications</h2>
+    <table>
+      <tr><th>Nom</th><th>Institution</th></tr>
+      <tr><td>Java Grundlagen</td><td>Plattform XYZ</td></tr>
+      <tr><td>Webentwicklung</td><td>Plattform ABC</td></tr>
+    </table>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="card">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Nom" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="5" placeholder="Message"></textarea>
+      <input type="submit" value="Envoyer">
+    </form>
+  </section>
 
 </div>
 
