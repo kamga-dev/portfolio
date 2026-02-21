@@ -15,33 +15,20 @@ body {
 }
 a { text-decoration:none; color:inherit; }
 
-/* Scroll smooth */
-html { scroll-behavior: smooth; }
-
-/* Header sticky avec menu */
+/* Header sticky */
 header {
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
-  background:rgba(0,0,0,0.85);
-  position:fixed;
+  background:rgba(0,0,0,0.7);
+  position:sticky;
   top:0;
-  width:100%;
-  z-index:1000;
-}
-.header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
-.header-right {
-  display:flex;
-  gap:20px;
-  align-items:center;
-}
-.header-right a {
-  color:#fff;
-  font-weight:bold;
+  z-index:100;
   transition:0.3s;
 }
-.header-right a:hover { color:#00c6ff; }
+.header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
+.header-right { display:flex; gap:25px; align-items:center; }
 
 /* Dropdown langue avec globe */
 .dropdown { position:relative; cursor:pointer; transition: transform 0.3s; }
@@ -54,14 +41,13 @@ header {
 .mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
 .mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
-/* Container pour sections */
-section { padding:120px 20px 60px 20px; text-align:center; }
-section h2 { color:#00c6ff; margin-bottom:25px; }
-.card { margin-bottom:50px; }
+/* Container */
+.container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
 
-/* About */
+/* Über mich */
 #about img {
-  width:180px; height:180px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #00c6ff;
@@ -76,20 +62,41 @@ section h2 { color:#00c6ff; margin-bottom:25px; }
 .skill { display:flex; flex-direction:column; align-items:center; min-width:110px; transition: transform 0.3s; }
 .skill:hover { transform: scale(1.15); }
 .skill img { width:65px; height:65px; margin-bottom:6px; }
-.skill span { font-size:0.9em; color:#fff; }
+.skill span { font-size:0.9em; }
 @keyframes scrollSkills { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* Sections */
+section { padding:80px 20px; }
+section h2 { color:#00c6ff; margin-bottom:25px; }
+.card { margin-bottom:50px; }
 
 /* Berufserfahrung */
 table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }
 td, th { border:1px solid #00c6ff; padding:10px; text-align:left; }
 th { background:#00c6ff; color:black; }
 
-/* Certifications */
-.cert { background: rgba(0,0,0,0.5); padding:20px; border-radius:10px; margin-bottom:20px; text-align:left; transition: transform 0.2s, background 0.3s; }
+/* Bescheinigungen und Zertifikate */
+.cert { 
+  background: rgba(0,0,0,0.5); 
+  padding:20px; 
+  border-radius:10px; 
+  margin-bottom:20px; 
+  text-align:left;
+  transition: transform 0.2s, background 0.3s;
+}
 .cert:hover { background: rgba(0,198,255,0.2); transform: translateY(-5px);}
 .cert h3 { margin:0 0 5px 0; color:#00c6ff; }
 .cert p { margin:3px 0; }
-.cert button { background:#00c6ff; color:black; border:none; padding:5px 12px; border-radius:5px; cursor:pointer; margin-top:5px; transition:0.2s; }
+.cert button { 
+  background:#00c6ff; 
+  color:black; 
+  border:none; 
+  padding:5px 12px; 
+  border-radius:5px; 
+  cursor:pointer; 
+  margin-top:5px;
+  transition:0.2s;
+}
 .cert button:hover { background:#ffaa00; }
 
 /* Formulaire */
@@ -113,14 +120,7 @@ body.light-mode th { background:#00c6ff; color:white; }
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
   <div class="header-right">
-    <!-- Menu scroll -->
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-
-    <!-- Dropdown langue -->
+    <!-- Globe pour traduction -->
     <div class="dropdown">
       <span style="font-size:1.5em; cursor:pointer;">🌐</span>
       <div class="dropdown-content">
@@ -141,7 +141,7 @@ body.light-mode th { background:#00c6ff; color:white; }
 
 <div class="container">
 
-  <!-- About -->
+  <!-- Über mich -->
   <section id="about" class="card">
     <h2 data-key="about-title">Über mich</h2>
     <img src="kuete.jpeg" alt="Photo de Kuete Kamga">
@@ -165,18 +165,19 @@ body.light-mode th { background:#00c6ff; color:white; }
     </div>
   </section>
 
-  <!-- Projects / Experience -->
+  <!-- Berufserfahrung -->
   <section id="experience" class="card">
-    <h2>Projects</h2>
+    <h2>Berufserfahrung / Experience</h2>
     <table>
       <tr><th>Position</th><th>Beschreibung</th></tr>
       <tr><td>Werkstudent / Praktikum</td><td>Développement logiciel, Java, HTML, CSS, JS, participation à projets étudiants.</td></tr>
     </table>
   </section>
 
-  <!-- Certifications -->
+  <!-- Bescheinigungen und Zertifikate -->
   <section id="certifications" class="card">
-    <h2>Certifications</h2>
+    <h2>Bescheinigungen und Zertifikate</h2>
+
     <div class="cert">
       <h3>Grundkurs Webtechniken 1: HTML</h3>
       <p>LinkedIn</p>
@@ -184,6 +185,7 @@ body.light-mode th { background:#00c6ff; color:white; }
       <button onclick="window.open('nachweise/html-grundkurs.pdf', '_blank')">Nachweis anzeigen</button>
       <p>Kenntnisse: Webdesign</p>
     </div>
+
     <div class="cert">
       <h3>Grundlagen der Webprogrammierung: Meine erste Website</h3>
       <p>LinkedIn</p>
@@ -191,6 +193,7 @@ body.light-mode th { background:#00c6ff; color:white; }
       <button onclick="window.open('nachweise/erste-website.pdf', '_blank')">Nachweis anzeigen</button>
       <p>Kenntnisse: Webentwicklung</p>
     </div>
+
     <div class="cert">
       <h3>Responsive Webdesign - Grundlagen</h3>
       <p>LinkedIn</p>
@@ -198,6 +201,7 @@ body.light-mode th { background:#00c6ff; color:white; }
       <button onclick="window.open('nachweise/responsive.pdf', '_blank')">Nachweis anzeigen</button>
       <p>Kenntnisse: Responsive Webdesign</p>
     </div>
+
     <div class="cert">
       <h3>Microsoft Office Specialist: Excel</h3>
       <p>Uniwunder</p>
@@ -251,4 +255,4 @@ document.querySelectorAll('.dropdown-content a').forEach(link=>{
 </script>
 
 </body>
-</html>
+</html>modifi plutot le code si
