@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Kuete Kamga</title>
 
 <style>
-/* Reset & global */
 body {
   margin:0;
   font-family:'Segoe UI', sans-serif;
@@ -16,7 +15,7 @@ body {
 }
 a { text-decoration:none; color:inherit; }
 
-/* Header */
+/* Header sticky */
 header {
   display:flex;
   justify-content:space-between;
@@ -43,7 +42,7 @@ header {
 .mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
 .mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
-/* Container général */
+/* Container */
 .container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
 
 /* Über mich */
@@ -120,14 +119,14 @@ body.light-mode th { background:#00c6ff; color:white; }
 
   <!-- Über mich -->
   <section id="about" class="card">
-    <h2 data-key="about-title">À propos de moi</h2>
-    <img src="https://raw.githubusercontent.com/TonNom/portfolio-kuete/main/kuete.jpeg" alt="Photo de Kuete Kamga">
-    <p data-key="about-text">Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.</p>
+    <h2 data-key="about-title">Über mich</h2>
+    <img src="kuete.jpeg" alt="Photo de Kuete Kamga">
+    <p data-key="about-text">Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.</p>
   </section>
 
   <!-- Skills -->
   <section id="skills" class="card">
-    <h2 data-key="skills-title">Compétences</h2>
+    <h2 data-key="skills-title">Skills</h2>
     <div class="skills-container">
       <div class="skills-track">
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
