@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Kuete Kamga</title>
 
 <style>
-/* 🌌 Fond étoilé animé */
 body {
   margin:0;
   font-family: 'Segoe UI', sans-serif;
@@ -15,17 +14,6 @@ body {
   background:black;
   transition:0.3s;
 }
-.stars {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: moveStars 60s linear infinite;
-  z-index:-1;
-}
-@keyframes moveStars { from {background-position:0 0;} to {background-position:10000px 5000px;} }
-
-/* Header sticky */
 header {
   display:flex;
   justify-content:space-between;
@@ -38,55 +26,36 @@ header {
   transition:0.3s;
 }
 .header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
-.header-right { display:flex; gap:25px; align-items:center; padding-right:10px; }
+.header-right { display:flex; gap:25px; align-items:center; }
 
 /* Dropdown langue */
 .dropdown { position:relative; cursor:pointer; color:#ccc; font-size:1.5em; transition: transform 0.3s, color 0.3s; }
 .dropdown:hover svg { transform: scale(1.3) rotate(-10deg); color:#00c6ff; }
-.dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.5);}
+.dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; }
 .dropdown-content a { display:block; padding:10px 16px; color:#fff; text-decoration:none; font-size:1em; transition:0.2s; }
 .dropdown-content a:hover { background:#00c6ff; color:black; }
 .dropdown:hover .dropdown-content { display:block; }
 
 /* Toggle sombre/clair */
-.mode-toggle svg {
-  cursor:pointer;
-  width:24px;
-  height:24px;
-  transition: transform 0.3s, fill 0.3s;
-}
+.mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
 .mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
 
 /* Container */
-.container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; }
+.container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
 
-/* Hero / Über mich */
-#about {
-  text-align:center;
-}
+/* Über mich */
 #about img {
   width:180px;
   height:180px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #00c6ff;
-  margin-bottom:15px; /* espace entre photo et texte */
+  margin-bottom:15px;
 }
-#about p {
-  max-width:700px;
-  margin: 0 auto 25px auto;
-  font-size:1.1em;
-  line-height:1.6em;
-}
+#about p { max-width:700px; margin:auto; font-size:1.1em; line-height:1.6em; }
 
-/* Cards fade-in */
-.card { background:rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding:25px; margin:25px 0; border-radius:12px; transition: all 1s ease-out; opacity:0; transform:translateY(20px);}
-.card.visible { opacity:1; transform:translateY(0);}
-.card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 0 20px rgba(0,198,255,0.5);}
-.card h2 { color:#00c6ff; font-size:2em; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:5px; }
-
-/* Skills défilantes ultra fluide */
-.skills-container { overflow: hidden; width:100%; margin-top:20px; position: relative; }
+/* Skills défilantes */
+.skills-container { overflow:hidden; width:100%; margin-top:20px; position: relative; }
 .skills-track { display:flex; width:max-content; gap:50px; animation: scrollSkills 30s linear infinite; }
 .skills-container:hover .skills-track { animation-play-state: paused; }
 .skill { display:flex; flex-direction:column; align-items:center; min-width:110px; transition: transform 0.3s; }
@@ -94,27 +63,16 @@ header {
 .skill img { width:65px; height:65px; margin-bottom:6px; }
 .skill span { font-size:0.9em; }
 @keyframes scrollSkills { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-body.light-mode .skill span { color:black; }
-
-/* Contact Form */
-form { display:flex; flex-direction:column; max-width:600px; margin:auto; }
-form input, form textarea { margin:10px 0; padding:10px; border-radius:8px; border:none; outline:none; }
-form button { padding:10px; border:none; border-radius:25px; background:linear-gradient(90deg,#00c6ff,#0072ff); color:white; cursor:pointer; transition:0.3s;}
-form button:hover { transform:scale(1.05); }
-
-/* Footer */
-footer { text-align:center; padding:20px; opacity:0.7; }
 
 /* Mode clair */
 body.light-mode { background:white; color:black; }
 body.light-mode header { background:rgba(255,255,255,0.8);}
 body.light-mode .dropdown-content { background:rgba(255,255,255,0.9);}
 body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
+
 </style>
 </head>
-
 <body>
-<div class="stars"></div>
 
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
@@ -141,23 +99,19 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
 
   <!-- Über mich -->
   <div id="about" class="card">
-    <h2 data-key="about-title">Über mich</h2>
-
-    <!-- Photo d’abord -->
-    <img src="kuete.jpg" alt="Photo de Kuete Kamga">
-
-    <!-- Texte ensuite -->
+    <h2 data-key="about-title">À propos de moi</h2>
+    <!-- Photo depuis GitHub -->
+    <img src="https://raw.githubusercontent.com/TonNom/portfolio-kuete/main/kuete.jpg" alt="Photo de Kuete Kamga">
     <p data-key="about-text">
-      Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.
+      Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.
     </p>
   </div>
 
   <!-- Skills défilantes -->
   <div id="skills" class="card">
-    <h2 data-key="skills-title">Skills</h2>
+    <h2 data-key="skills-title">Compétences</h2>
     <div class="skills-container">
       <div class="skills-track">
-
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
@@ -166,102 +120,30 @@ body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"><span>SQL</span></div>
         <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><span>React</span></div>
-
-        <!-- Dupliquer pour boucle infinie -->
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><span>Java</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"><span>Angular</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"><span>SQL</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><span>React</span></div>
-
       </div>
     </div>
   </div>
 
-  <!-- Projects -->
-  <div id="projects" class="card">
-    <h2 data-key="projects-title">Projekte</h2>
-    <ul>
-      <li data-key="project1">Vier Gewinnt – Java Spiel</li>
-      <li data-key="project2">Turing Maschine – Simulation</li>
-    </ul>
-  </div>
-
-  <!-- Experience -->
-  <div id="experience" class="card">
-    <h2 data-key="experience-title">Berufserfahrung</h2>
-    <ul>
-      <li>Softwareentwicklung während des Studiums</li>
-      <li>Java, HTML, CSS, JS</li>
-      <li>Algorithmen & Datenstrukturen</li>
-    </ul>
-  </div>
-
-  <!-- Certifications -->
-  <div id="certifications" class="card">
-    <h2 data-key="certifications-title">Zertifikationen</h2>
-    <ul>
-      <li>Java Grundlagen</li>
-      <li>Webentwicklung</li>
-      <li>Algorithmik</li>
-    </ul>
-  </div>
-
-  <!-- Contact -->
-  <div id="contact" class="card">
-    <h2 data-key="contact-title">Kontakt</h2>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Nachricht" rows="5" required></textarea>
-      <button type="submit">Senden</button>
-    </form>
-  </div>
-
 </div>
 
-<footer>© 2026 Kuete Kamga – Portfolio</footer>
-
 <script>
-// Fade-in des cartes
-const cards=document.querySelectorAll('.card');
-function revealOnScroll(){
-  cards.forEach(card=>{
-    const rect=card.getBoundingClientRect();
-    if(rect.top<window.innerHeight-50) card.classList.add('visible');
-  });
-}
-window.addEventListener('scroll',revealOnScroll);
-window.addEventListener('load',revealOnScroll);
-
-// Mode sombre/clair
+// Toggle sombre/clair
 const toggle=document.querySelector('.mode-toggle');
 const icon=document.getElementById('moon-icon');
-if(localStorage.getItem('theme')==='light'){
-  document.body.classList.add('light-mode');
-  icon.setAttribute('fill','#ffaa00');
-}
 toggle.addEventListener('click',()=>{
   document.body.classList.toggle('light-mode');
   if(document.body.classList.contains('light-mode')){
     icon.setAttribute('fill','#ffaa00');
-    localStorage.setItem('theme','light');
   } else{
     icon.setAttribute('fill','#00c6ff');
-    localStorage.setItem('theme','dark');
   }
 });
 
 // Traduction simple
 const translations={
-"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","skills-title":"Compétences","projects-title":"Projets","project1":"Puissance 4 – Jeu Java","project2":"Machine de Turing – Simulation","experience-title":"Expérience","certifications-title":"Certifications","contact-title":"Contact"},
-"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","skills-title":"Skills","projects-title":"Projects","project1":"Connect Four – Java Game","project2":"Turing Machine – Simulation","experience-title":"Work Experience","certifications-title":"Certifications","contact-title":"Contact"},
-"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","skills-title":"Skills","projects-title":"Projekte","project1":"Vier Gewinnt – Java Spiel","project2":"Turing Maschine – Simulation","experience-title":"Berufserfahrung","certifications-title":"Zertifikationen","contact-title":"Kontakt"}
+"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","skills-title":"Compétences"},
+"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","skills-title":"Skills"},
+"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","skills-title":"Skills"}
 };
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
   link.addEventListener('click',e=>{
