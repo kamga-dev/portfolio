@@ -1,9 +1,30 @@
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger?.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!hamburger?.contains(e.target) && !navMenu?.contains(e.target)) {
+    hamburger?.classList.remove('active');
+    navMenu?.classList.remove('active');
+  }
+});
+
 // Smooth scroll pour navigation
 document.querySelectorAll('.nav-menu a').forEach(link=>{
   link.addEventListener('click',e=>{
     e.preventDefault();
     const target=document.querySelector(link.getAttribute('href'));
     target.scrollIntoView({behavior:'smooth',block:'start'});
+
+    // Close mobile menu after click
+    hamburger?.classList.remove('active');
+    navMenu?.classList.remove('active');
   });
 });
 
