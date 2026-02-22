@@ -7,9 +7,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="bg-visuals" aria-hidden="true">
+  <div class="bg-particles"></div>
+</div>
 
 <header>
   <div class="header-left"><h1 data-key="portfolio-title">Portfolio</h1></div>
+
+  <nav class="nav-menu">
+    <a href="#home" data-key="nav-home">Startseite</a>
+    <a href="#skills" data-key="nav-skills">Fähigkeiten</a>
+    <a href="#projects" data-key="nav-projects">Projekte</a>
+    <a href="#experience" data-key="nav-experience">Erfahrung</a>
+    <a href="#education" data-key="nav-education">Ausbildung</a>
+    <a href="#certifications" data-key="nav-certifications">Zertifikate</a>
+    <a href="#contact" data-key="nav-contact">Kontakt</a>
+  </nav>
+
   <div class="header-right">
     <!-- Globe pour traduction -->
     <div class="dropdown">
@@ -22,97 +36,405 @@
     </div>
 
     <!-- Toggle sombre/clair -->
-    <div class="mode-toggle">
-      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00c6ff" viewBox="0 0 24 24">
-        <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
-      </svg>
-    </div>
+    <button class="theme-toggle" id="theme-toggle" data-key="theme-toggle" data-attr="aria-label" aria-label="Theme wechseln">
+      <span class="theme-icon theme-moon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21.752 15.002A9 9 0 0 1 12 3a9 9 0 1 0 9.752 12.002z"/>
+        </svg>
+      </span>
+      <span class="theme-icon theme-sun" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 4.5a1 1 0 0 1 1 1V7a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1Zm0 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm7.5-3.5a1 1 0 0 1 1-1H22a1 1 0 1 1 0 2h-1.5a1 1 0 0 1-1-1ZM3 11a1 1 0 0 1 1-1H5.5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm13.95-6.45a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 1 1-1.41 1.41l-1.06-1.06a1 1 0 0 1 0-1.41ZM4.59 17.81a1 1 0 0 1 1.41 0l1.06 1.06a1 1 0 0 1-1.41 1.41l-1.06-1.06a1 1 0 0 1 0-1.41Zm13.89 1.06a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 1 1 1.41 1.41l-1.06 1.06a1 1 0 0 1-1.41 0ZM4.59 6.19a1 1 0 0 1 0-1.41l1.06-1.06a1 1 0 1 1 1.41 1.41L6 6.19a1 1 0 0 1-1.41 0Z"/>
+        </svg>
+      </span>
+    </button>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- Über mich -->
-  <section id="about" class="card">
-    <h2 data-key="about-title">Über mich</h2>
-    <img src="kuete.jpeg" alt="Photo de Kuete Kamga">
-    <p data-key="about-text">Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.</p>
+  <!-- Startseite -->
+  <section id="home" class="card hero-section">
+    <div class="hero-content">
+      <div class="hero-text-side">
+        <h1 class="hero-name" data-key="hero-name">Kuete Kamga Starline Lecool</h1>
+        <div class="typewriter-wrap">
+          <h2 class="typewriter" data-key="typewriter-text" data-attr="data-text" data-text="Webentwickler (HTML, CSS, Java)">
+            <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+          </h2>
+        </div>
+        <p class="hero-tagline" data-key="home-text">Motivierter, engagierter und zielstrebiger Informatikstudent mit einer ausgeprägten Leidenschaft für Programmierung, Softwareentwicklung und Datenbanken. Ich begeistere mich für neue Technologien.</p>
+        <div class="quick-contact" aria-label="Quick contact">
+          <a class="qc-link" href="https://www.linkedin.com/in/kuetekamga?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQUpP5kfQRVesImSq9qhQVQ%3D%3D" target="_blank" rel="noopener" data-key="qc-linkedin" data-attr="data-tooltip" data-tooltip="LinkedIn">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="">
+          </a>
+          <a class="qc-link" href="https://github.com/kamga-dev" target="_blank" rel="noopener" data-key="qc-github" data-attr="data-tooltip" data-tooltip="GitHub">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="">
+          </a>
+          <a class="qc-link" href="mailto:kuetekamga11@gmail.com" data-key="qc-mail" data-attr="data-tooltip" data-tooltip="E-Mail">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-side">
+        <div class="hero-image-wrapper">
+          <img src="kuete.jpeg" alt="Photo de Kuete Kamga" class="hero-image">
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Fähigkeiten -->
   <section id="skills" class="card">
-    <h2 data-key="skills-title">Skills</h2>
-    <div class="skills-container">
-      <div class="skills-track">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><span>Java</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"><span>Angular</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"><span>SQL</span></div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
+    <h2 data-key="skills-title">Fähigkeiten</h2>
+    <div class="skills-carousel-wrapper">
+      <div class="skills-carousel">
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+          <span>HTML</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+          <span>CSS</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+          <span>Java</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          <span>Python</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+          <span>PHP</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL / MySQL">
+          <span>SQL / MySQL</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftexcel.svg" alt="Excel">
+          <span>Excel</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/databricks.svg" alt="EDV">
+          <span data-key="skill-edv">EDV</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
+          <span>Angular</span>
+        </div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+          <span>HTML</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+          <span>CSS</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+          <span>Java</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          <span>Python</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+          <span>PHP</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL / MySQL">
+          <span>SQL / MySQL</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftexcel.svg" alt="Excel">
+          <span>Excel</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/databricks.svg" alt="EDV">
+          <span data-key="skill-edv">EDV</span>
+        </div>
+        <div class="skill-card-carousel">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
+          <span>Angular</span>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Projekte -->
+  <section id="projects" class="card">
+    <h2 data-key="projects-title">Projekte</h2>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Portfolio Web Developer" loading="lazy">
+          <div class="project-overlay">
+            <span data-key="project-view">Ansehen</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 data-key="project1-title">Portfolio Web Developer</h3>
+          <p data-key="project1-desc">Mein persönliches Portfolio zeigt meine Webentwicklungsfähigkeiten, mit Animationen, responsive Design und Integration realer Projekte.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">PHP</span>
+          </div>
+          <div class="project-links">
+            <a href="#home" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
+            <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop" alt="E-Commerce Platform" loading="lazy">
+          <div class="project-overlay">
+            <span data-key="project-view">Ansehen</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 data-key="project2-title">E-Commerce Platform</h3>
+          <p data-key="project2-desc">Eine moderne E-Commerce-Plattform mit Produktkatalog, Warenkorb und Zahlungsintegration. Entwickelt mit responsivem Design für optimale Benutzererfahrung.</p>
+          <div class="project-tech">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
+            <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Task Management System" loading="lazy">
+          <div class="project-overlay">
+            <span data-key="project-view">Ansehen</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 data-key="project3-title">Task Management System</h3>
+          <p data-key="project3-desc">Ein kollaboratives Task-Management-Tool mit Echtzeit-Updates, Benutzerrollen und Benachrichtigungen. Ermöglicht effizientes Projektmanagement im Team.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">HTML</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
+            <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- Berufserfahrung -->
   <section id="experience" class="card">
-    <h2>Berufserfahrung / Experience</h2>
-    <table>
-      <tr><th>Position</th><th>Beschreibung</th></tr>
-      <tr><td>Werkstudent / Praktikum</td><td>Développement logiciel, Java, HTML, CSS, JS, participation à projets étudiants.</td></tr>
-    </table>
+    <h2 data-key="experience-title">Berufserfahrung</h2>
+    <div class="exp-grid">
+      <article class="exp-card">
+        <div class="exp-header">
+          <div class="exp-logo-wrap">
+            <img class="exp-logo" src="Zenithis.jpeg" alt="Zenithis">
+          </div>
+          <div class="exp-title-group">
+            <h3 data-key="exp1-title">Werkstudent Webentwicklung (HTML, CSS, Java)</h3>
+            <div class="exp-company" data-key="exp1-company">Zenithis · Werkstudium</div>
+          </div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-date" data-key="exp1-dates">Nov. 2024 – 0kt. 2025 (1 Jahr)</span>
+          <span class="exp-location" data-key="exp1-location">Wilmington, DE, USA · Remote</span>
+        </div>
+        <ul class="exp-list">
+          <li data-key="exp1-bullet1">Entwicklung und Wartung von Websites mit HTML und CSS</li>
+          <li data-key="exp1-bullet2">Support bei der Implementierung von Web-Funktionen</li>
+          <li data-key="exp1-bullet3">Arbeit mit SQL-Datenbanken und Datenmanagement</li>
+          <li class="exp-extra" data-key="exp1-bullet4">Analyse von Fehlern und Debugging von Webanwendungen</li>
+          <li class="exp-extra" data-key="exp1-bullet5">Zusammenarbeit mit dem Entwicklerteam an digitalen Projekten</li>
+        </ul>
+        <button class="exp-toggle" type="button" data-key="exp-more">mehr anzeigen</button>
+      </article>
+
+      <article class="exp-card">
+        <div class="exp-header">
+          <div class="exp-logo-wrap">
+            <img class="exp-logo" src="Kamerunisches Rotes Kreuz..jpeg" alt="Kamerunisches Rotes Kreuz">
+          </div>
+          <div class="exp-title-group">
+            <h3 data-key="exp2-title">Werkstudent Datenerfasser (EDV)</h3>
+            <div class="exp-company" data-key="exp2-company">Kamerunisches Rotes Kreuz (Yaoundé)</div>
+          </div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-date" data-key="exp2-dates">Dez. 2024 – Nov. 2025 / Nov. 2022 – Okt. 2023</span>
+        </div>
+        <ul class="exp-list">
+          <li data-key="exp2-bullet1">Erfassung und Verwaltung von Daten in EDV-Systemen</li>
+          <li data-key="exp2-bullet2">Eingabe und Aktualisierung von Informationen (z. B. Personendaten oder Projekte)</li>
+          <li data-key="exp2-bullet3">Kontrolle und Korrektur von Daten</li>
+          <li class="exp-extra" data-key="exp2-bullet4">Unterstützung administrativer Aufgaben</li>
+          <li class="exp-extra" data-key="exp2-bullet5">Arbeit mit digitalen Dokumenten und Datenbanken</li>
+        </ul>
+        <button class="exp-toggle" type="button" data-key="exp-more">mehr anzeigen</button>
+      </article>
+    </div>
   </section>
 
-  <!-- Bescheinigungen und Zertifikate -->
+  <!-- Ausbildung -->
+  <section id="education" class="card">
+    <h2 data-key="education-title">Ausbildung</h2>
+    <div class="edu-timeline">
+      <article class="edu-card">
+        <div class="edu-header">
+          <h3 class="edu-section-title" data-key="edu-study-title">Studium</h3>
+          <span class="edu-period" data-key="edu-study-period">Oktober 2024 – laufend</span>
+        </div>
+        <div class="edu-role" data-key="edu-study-role">Informatikstudent</div>
+        <div class="edu-school">
+          <img class="edu-logo" src="https://www.uni-giessen.de/de/studium/lehre/projekte/nidit/Bilder/logo-thm.svg" alt="THM Logo">
+          <span data-key="edu-study-school">Technische Hochschule Mittelhessen, Gießen</span>
+        </div>
+        <ul class="edu-list">
+          <li data-key="edu-study-bullet1">Entwicklung von Webanwendungen mit HTML, CSS und PHP</li>
+          <li data-key="edu-study-bullet2">Objektorientierte Programmierung und Softwareentwicklung</li>
+          <li data-key="edu-study-bullet3">Datenstrukturen und Algorithmen</li>
+          <li data-key="edu-study-bullet4">Erstellung und Ausführung komplexer SQL-Abfragen mit MySQL Workbench</li>
+        </ul>
+      </article>
+
+      <article class="edu-card">
+        <div class="edu-header">
+          <h3 class="edu-section-title" data-key="edu-highschool-title">Gymnasium</h3>
+          <span class="edu-period" data-key="edu-highschool-period">September 2015 – Mai 2022</span>
+        </div>
+        <div class="edu-role" data-key="edu-highschool-degree">Abitur (wissenschaftlich)</div>
+        <div class="edu-school">
+          <span data-key="edu-highschool-place">Kamerun</span>
+        </div>
+        <div class="edu-focus" data-key="edu-highschool-focus">Schwerpunkte: Mathematik, Physik und Informatik</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Zertifikate -->
   <section id="certifications" class="card">
-    <h2>Bescheinigungen und Zertifikate</h2>
+    <h2 data-key="certifications-title">Bescheinigungen und Zertifikate</h2>
 
     <div class="cert">
-      <h3>Grundkurs Webtechniken 1: HTML</h3>
-      <p>LinkedIn</p>
-      <p>Ausgestellt: Feb. 2026</p>
-      <button onclick="window.open('nachweise/html-grundkurs.pdf', '_blank')">Nachweis anzeigen</button>
-      <p>Kenntnisse: Webdesign</p>
+      <div class="cert-header">
+        <h3 data-key="cert1-title">Grundkurs Webtechniken 1: HTML</h3>
+        <div class="cert-provider">
+          <img class="cert-provider-icon linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          <span>LinkedIn</span>
+        </div>
+      </div>
+      <p><span data-key="cert-issued">Ausgestellt</span>: Feb. 2026</p>
+      <button onclick="openModal('nachweise/html-grundkurs.png')" data-key="cert-button">Nachweis anzeigen ↗</button>
+      <p><span data-key="cert-skills">Kenntnisse</span>: <span data-key="cert1-skills">Webdesign</span></p>
     </div>
 
     <div class="cert">
-      <h3>Grundlagen der Webprogrammierung: Meine erste Website</h3>
-      <p>LinkedIn</p>
-      <p>Ausgestellt: Feb. 2026</p>
-      <button onclick="window.open('nachweise/erste-website.pdf', '_blank')">Nachweis anzeigen</button>
-      <p>Kenntnisse: Webentwicklung</p>
+      <div class="cert-header">
+        <h3 data-key="cert2-title">Grundlagen der Webprogrammierung: Meine erste Website</h3>
+        <div class="cert-provider">
+          <img class="cert-provider-icon linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          <span>LinkedIn</span>
+        </div>
+      </div>
+      <p><span data-key="cert-issued">Ausgestellt</span>: Feb. 2026</p>
+      <button onclick="openModal('nachweise/erste-website.png')" data-key="cert-button">Nachweis anzeigen ↗</button>
+      <p><span data-key="cert-skills">Kenntnisse</span>: <span data-key="cert2-skills">Webentwicklung</span></p>
     </div>
 
     <div class="cert">
-      <h3>Responsive Webdesign - Grundlagen</h3>
-      <p>LinkedIn</p>
-      <p>Ausgestellt: Feb. 2026</p>
-      <button onclick="window.open('nachweise/responsive.pdf', '_blank')">Nachweis anzeigen</button>
-      <p>Kenntnisse: Responsive Webdesign</p>
+      <div class="cert-header">
+        <h3 data-key="cert3-title">Responsive Webdesign - Grundlagen</h3>
+        <div class="cert-provider">
+          <img class="cert-provider-icon linkedin-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          <span>LinkedIn</span>
+        </div>
+      </div>
+      <p><span data-key="cert-issued">Ausgestellt</span>: Feb. 2026</p>
+      <button onclick="openModal('nachweise/responsive.png')" data-key="cert-button">Nachweis anzeigen ↗</button>
+      <p><span data-key="cert-skills">Kenntnisse</span>: Responsive Webdesign</p>
     </div>
 
     <div class="cert">
-      <h3>Microsoft Office Specialist: Excel</h3>
-      <p>Uniwunder</p>
-      <p>Ausgestellt: Sept. 2025</p>
-      <button onclick="window.open('nachweise/excel.pdf', '_blank')">Nachweis anzeigen</button>
-      <p>Kenntnisse: Microsoft Excel</p>
+      <div class="cert-header">
+        <h3>Microsoft Office Specialist: Excel</h3>
+        <div class="cert-provider">
+          <img class="cert-provider-icon" src="uniwunder.png" alt="Uniwunder">
+          <span>Uniwunder</span>
+        </div>
+      </div>
+      <p><span data-key="cert-issued">Ausgestellt</span>: Sept. 2025</p>
+      <button onclick="openModal('nachweise/excel.png')" data-key="cert-button">Nachweis anzeigen ↗</button>
+      <p><span data-key="cert-skills">Kenntnisse</span>: Microsoft Excel</p>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Nom" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Message"></textarea>
-      <input type="submit" value="Envoyer">
+  <!-- Kontakt -->
+  <section id="contact" class="card contact-section">
+    <h2 data-key="contact-title">Kontakt</h2>
+    <p class="contact-intro" data-key="contact-intro">Haben Sie ein Projekt im Kopf oder möchten Sie einfach nur Hallo sagen? Ich würde mich freuen, von Ihnen zu hören!</p>
+    <form action="https://formspree.io/f/meelrdnn" method="POST" class="contact-form">
+      <div class="form-group">
+        <label for="name" data-key="contact-label-name">Name</label>
+        <input type="text" id="name" name="name" data-key="contact-name" data-attr="placeholder" placeholder="Ihr Name" required>
+      </div>
+      <div class="form-group">
+        <label for="email" data-key="contact-label-email">E-Mail</label>
+        <input type="email" id="email" name="email" data-key="contact-email" data-attr="placeholder" placeholder="ihre.email@beispiel.de" required>
+      </div>
+      <div class="form-group">
+        <label for="message" data-key="contact-label-message">Nachricht</label>
+        <textarea id="message" name="message" rows="6" data-key="contact-message" data-attr="placeholder" placeholder="Ihre Nachricht..." required></textarea>
+      </div>
+      <button type="submit" class="contact-submit" data-key="contact-submit">
+        <span class="submit-text">Nachricht senden</span>
+        <span class="submit-icon">→</span>
+      </button>
     </form>
+    <div class="contact-alt">
+      <p data-key="contact-or">Oder kontaktieren Sie mich direkt über:</p>
+      <div class="contact-direct">
+        <a href="mailto:kuetekamga11@gmail.com" class="contact-direct-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
+          <span>kuetekamga11@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/kuetekamga" target="_blank" rel="noopener" class="contact-direct-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="contact-direct-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
   </section>
 
+</div>
+
+<div id="certModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <img id="modalImg" src="" alt="Zertifikat">
+  </div>
 </div>
 
 <script src="script.js"></script>
