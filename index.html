@@ -4,116 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio – Kuete Kamga</title>
-
-<style>
-body {
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-  color:#ccc;
-  background:black;
-  transition:0.3s;
-}
-a { text-decoration:none; color:inherit; }
-
-/* Header sticky */
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-  background:rgba(0,0,0,0.7);
-  position:sticky;
-  top:0;
-  z-index:100;
-  transition:0.3s;
-}
-.header-left h1 { color:#00c6ff; font-size:1.5em; margin:0; }
-.header-right { display:flex; gap:25px; align-items:center; }
-
-/* Dropdown langue avec globe */
-.dropdown { position:relative; cursor:pointer; transition: transform 0.3s; }
-.dropdown-content { display:none; position:absolute; right:0; top:30px; background:rgba(0,0,0,0.9); border-radius:8px; overflow:hidden; }
-.dropdown-content a { display:block; padding:10px 16px; color:#fff; font-size:1em; transition:0.2s; }
-.dropdown-content a:hover { background:#00c6ff; color:black; }
-.dropdown:hover .dropdown-content { display:block; }
-
-/* Toggle sombre/clair */
-.mode-toggle svg { cursor:pointer; width:24px; height:24px; transition: transform 0.3s, fill 0.3s; }
-.mode-toggle svg:hover { transform: rotate(20deg) scale(1.2); fill: #ffcc00; }
-
-/* Container */
-.container { max-width:1000px; margin:auto; padding:140px 20px 40px 20px; text-align:center; }
-
-/* Über mich */
-#about img {
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  object-fit:cover;
-  border:3px solid #00c6ff;
-  margin-bottom:15px;
-}
-#about p { max-width:700px; margin:auto; font-size:1.1em; line-height:1.6em; }
-
-/* Skills défilantes */
-.skills-container { overflow:hidden; width:100%; margin-top:20px; position: relative; }
-.skills-track { display:flex; width:max-content; gap:50px; animation: scrollSkills 30s linear infinite; }
-.skills-container:hover .skills-track { animation-play-state: paused; }
-.skill { display:flex; flex-direction:column; align-items:center; min-width:110px; transition: transform 0.3s; }
-.skill:hover { transform: scale(1.15); }
-.skill img { width:65px; height:65px; margin-bottom:6px; }
-.skill span { font-size:0.9em; }
-@keyframes scrollSkills { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* Sections */
-section { padding:80px 20px; }
-section h2 { color:#00c6ff; margin-bottom:25px; }
-.card { margin-bottom:50px; }
-
-/* Berufserfahrung */
-table { margin:auto; border-collapse: collapse; width:90%; max-width:800px; }
-td, th { border:1px solid #00c6ff; padding:10px; text-align:left; }
-th { background:#00c6ff; color:black; }
-
-/* Bescheinigungen und Zertifikate */
-.cert { 
-  background: rgba(0,0,0,0.5); 
-  padding:20px; 
-  border-radius:10px; 
-  margin-bottom:20px; 
-  text-align:left;
-  transition: transform 0.2s, background 0.3s;
-}
-.cert:hover { background: rgba(0,198,255,0.2); transform: translateY(-5px);}
-.cert h3 { margin:0 0 5px 0; color:#00c6ff; }
-.cert p { margin:3px 0; }
-.cert button { 
-  background:#00c6ff; 
-  color:black; 
-  border:none; 
-  padding:5px 12px; 
-  border-radius:5px; 
-  cursor:pointer; 
-  margin-top:5px;
-  transition:0.2s;
-}
-.cert button:hover { background:#ffaa00; }
-
-/* Formulaire */
-form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
-input, textarea { padding:10px; border-radius:5px; border:none; font-size:1em; }
-input[type="submit"] { background:#00c6ff; color:black; cursor:pointer; transition:0.2s; }
-input[type="submit"]:hover { background:#ffaa00; }
-
-/* Mode clair */
-body.light-mode { background:white; color:black; }
-body.light-mode header { background:rgba(255,255,255,0.8);}
-body.light-mode .dropdown-content { background:rgba(255,255,255,0.9);}
-body.light-mode .dropdown-content a:hover { background:#00c6ff; color:white; }
-body.light-mode table { border-color:#00c6ff; }
-body.light-mode th { background:#00c6ff; color:white; }
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -224,35 +115,7 @@ body.light-mode th { background:#00c6ff; color:white; }
 
 </div>
 
-<script>
-// Toggle sombre/clair
-const toggle=document.querySelector('.mode-toggle');
-const icon=document.getElementById('moon-icon');
-toggle.addEventListener('click',()=>{
-  document.body.classList.toggle('light-mode');
-  if(document.body.classList.contains('light-mode')){
-    icon.setAttribute('fill','#ffaa00');
-  } else{
-    icon.setAttribute('fill','#00c6ff');
-  }
-});
-
-// Traduction simple
-const translations={
-"Français":{"portfolio-title":"Portfolio","about-title":"À propos de moi","about-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.","skills-title":"Compétences"},
-"English":{"portfolio-title":"Portfolio","about-title":"About Me","about-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.","skills-title":"Skills"},
-"Deutsch":{"portfolio-title":"Portfolio","about-title":"Über mich","about-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.","skills-title":"Skills"}
-};
-document.querySelectorAll('.dropdown-content a').forEach(link=>{
-  link.addEventListener('click',e=>{
-    const lang=e.target.textContent;
-    document.querySelectorAll('[data-key]').forEach(el=>{
-      const key=el.getAttribute('data-key');
-      if(translations[lang][key]) el.textContent=translations[lang][key];
-    });
-  });
-});
-</script>
+<script src="script.js"></script>
 
 </body>
-</html>modifi plutot le code si
+</html>
