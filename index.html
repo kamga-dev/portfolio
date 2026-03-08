@@ -182,75 +182,122 @@
   <!-- Projekte -->
   <section id="projects" class="card">
     <h2 data-key="projects-title">Projekte</h2>
-    <div class="projects-grid">
-      <article class="project-card">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Portfolio Web Developer" loading="lazy">
-          <div class="project-overlay">
-            <span data-key="project-view">Ansehen</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3 data-key="project1-title">Portfolio Web Developer</h3>
-          <p data-key="project1-desc">Mein persönliches Portfolio zeigt meine Webentwicklungsfähigkeiten, mit Animationen, responsive Design und Integration realer Projekte.</p>
-          <div class="project-tech">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">PHP</span>
-          </div>
-          <div class="project-links">
-            <a href="#home" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
-            <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
-          </div>
-        </div>
-      </article>
 
-      <article class="project-card">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop" alt="E-Commerce Platform" loading="lazy">
-          <div class="project-overlay">
-            <span data-key="project-view">Ansehen</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3 data-key="project2-title">E-Commerce Platform</h3>
-          <p data-key="project2-desc">Eine moderne E-Commerce-Plattform mit Produktkatalog, Warenkorb und Zahlungsintegration. Entwickelt mit responsivem Design für optimale Benutzererfahrung.</p>
-          <div class="project-tech">
-            <span class="tech-tag">PHP</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">CSS</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
-            <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
-          </div>
-        </div>
-      </article>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Vorheriges Projekt" disabled>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
 
-      <article class="project-card">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Task Management System" loading="lazy">
-          <div class="project-overlay">
-            <span data-key="project-view">Ansehen</span>
-          </div>
+      <div class="carousel-viewport" id="projectsCarousel">
+        <div class="carousel-track">
+
+          <!-- Projekt 1: AI-Text-Analyzer -->
+          <article class="project-card project-card--featured">
+            <div class="project-badge" data-key="project-ai-badge">Teamarbeit · Frontend</div>
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=400&fit=crop" alt="AI-Text-Analyzer Frontend Screenshot" loading="lazy">
+              <div class="project-overlay"><a href="https://github.com/Archange-Mbah/Godsmercy" target="_blank" rel="noopener" data-key="project-view">Ansehen</a></div>
+            </div>
+            <div class="project-content">
+              <h3 data-key="project-ai-title" data-html="true">AI&#8209;Text&#8209;Analyzer – Frontend Entwicklung</h3>
+              <p data-key="project-ai-desc" data-html="true">Webanwendung zur Analyse von Texten auf grammatikalische Fehler. Verantwortlich für das gesamte <strong>Frontend-Design und die Implementierung</strong> – von der Konzeption bis zur Flask-Anbindung.</p>
+              <ul class="project-tasks">
+                <li data-key="project-ai-task1" data-html="true">Responsives Layout mit <strong>Bootstrap 5</strong></li>
+                <li data-key="project-ai-task2" data-html="true">Moderne Navbar mit <strong>Sprachwahl</strong> (mehrsprachig)</li>
+                <li data-key="project-ai-task3" data-html="true">Intuitives <strong>Datei-Upload-System</strong></li>
+                <li data-key="project-ai-task4" data-html="true">Strukturierte <strong>Ergebnisanzeige</strong> der Analyse</li>
+                <li data-key="project-ai-task5" data-html="true">Template-Integration via <strong>Jinja2 / Flask</strong></li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Jinja2</span>
+                <span class="tech-tag">Flask</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Archange-Mbah/Godsmercy" target="_blank" rel="noopener" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
+                <a href="https://github.com/Archange-Mbah/Godsmercy" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projekt 2: Portfolio -->
+          <article class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Portfolio Web Developer" loading="lazy">
+              <div class="project-overlay"><a href="https://github.com/kamga-dev/portfolio" target="_blank" rel="noopener" data-key="project-view">Ansehen</a></div>
+            </div>
+            <div class="project-content">
+              <h3 data-key="project1-title">Portfolio Web Developer</h3>
+              <p data-key="project1-desc">Mein persönliches Portfolio mit modernem Design, Dark/Light-Mode und responsivem Layout für alle Bildschirmgrößen.</p>
+              <ul class="project-tasks">
+                <li data-key="project1-task1" data-html="true">Animierter <strong>Hero-Bereich</strong> mit Typewriter-Effekt</li>
+                <li data-key="project1-task2" data-html="true"><strong>Dark / Light Mode</strong> mit CSS-Variablen</li>
+                <li data-key="project1-task3" data-html="true"><strong>Skills-Karussell</strong> mit CSS-Animation</li>
+                <li data-key="project1-task4" data-html="true">Mehrsprachigkeit via <strong>JavaScript</strong></li>
+                <li data-key="project1-task5" data-html="true">Formularintegration über <strong>Formspree</strong></li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">PHP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kamga-dev/portfolio" target="_blank" rel="noopener" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
+                <a href="https://github.com/kamga-dev/portfolio" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projekt 3: Task Management -->
+          <article class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Task Management System" loading="lazy">
+              <div class="project-overlay"><a href="https://github.com/kamga-dev" target="_blank" rel="noopener" data-key="project-view">Ansehen</a></div>
+            </div>
+            <div class="project-content">
+              <h3 data-key="project3-title">Task Management System</h3>
+              <p data-key="project3-desc">Kollaboratives Task-Management-Tool mit Echtzeit-Updates, Benutzerrollen und Benachrichtigungen für effizientes Teamwork.</p>
+              <ul class="project-tasks">
+                <li data-key="project3-task1" data-html="true"><strong>Benutzerrollen</strong> und Rechteverwaltung</li>
+                <li data-key="project3-task2" data-html="true"><strong>Aufgaben-Board</strong> mit Statusverwaltung</li>
+                <li data-key="project3-task3" data-html="true">Persistenz mit <strong>SQL-Datenbank</strong></li>
+                <li data-key="project3-task4" data-html="true"><strong>REST-API</strong> mit Java Backend</li>
+                <li data-key="project3-task5" data-html="true">Responsive UI mit <strong>Angular</strong></li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
+                <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
         </div>
-        <div class="project-content">
-          <h3 data-key="project3-title">Task Management System</h3>
-          <p data-key="project3-desc">Ein kollaboratives Task-Management-Tool mit Echtzeit-Updates, Benutzerrollen und Benachrichtigungen. Ermöglicht effizientes Projektmanagement im Team.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Angular</span>
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">SQL</span>
-            <span class="tech-tag">HTML</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-btn" data-key="project-btn-view">Projekt ansehen ↗</a>
-            <a href="https://github.com/kamga-dev" target="_blank" rel="noopener" class="project-btn project-btn-secondary" data-key="project-btn-github">GitHub →</a>
-          </div>
-        </div>
-      </article>
+      </div>
+
+      <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Nächstes Projekt">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots">
+      <button class="carousel-dot active" data-index="0" aria-label="Projekt 1"></button>
+      <button class="carousel-dot" data-index="1" aria-label="Projekt 2"></button>
+      <button class="carousel-dot" data-index="2" aria-label="Projekt 3"></button>
     </div>
   </section>
 

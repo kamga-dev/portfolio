@@ -195,7 +195,25 @@ const translations={
   "cert2-skills":"Développement web",
   "contact-name":"Nom",
   "contact-message":"Message",
-  "contact-submit":"Envoyer"
+  "contact-submit":"Envoyer",
+  "project-ai-badge":"Travail d'équipe · Frontend",
+  "project-ai-title":"AI‑Text‑Analyzer – Développement Frontend",
+  "project-ai-desc":"Application web pour analyser les textes sur les erreurs grammaticales. Responsable de l'ensemble du <strong>design frontend et de l'implémentation</strong> – de la conception à l'intégration Flask.",
+  "project-ai-task1":"Mise en page responsive avec <strong>Bootstrap 5</strong>",
+  "project-ai-task2":"Navbar moderne avec <strong>sélection de langue</strong> (multilingue)",
+  "project-ai-task3":"Système intuitif de <strong>téléchargement de fichiers</strong>",
+  "project-ai-task4":"<strong>Affichage structuré des résultats</strong> de l'analyse",
+  "project-ai-task5":"Intégration des templates via <strong>Jinja2 / Flask</strong>",
+  "project1-task1":"Section <strong>hero animée</strong> avec effet typewriter",
+  "project1-task2":"<strong>Mode sombre / clair</strong> avec variables CSS",
+  "project1-task3":"<strong>Carrousel de compétences</strong> avec animation CSS",
+  "project1-task4":"Multilinguisme via <strong>JavaScript</strong>",
+  "project1-task5":"Intégration de formulaire via <strong>Formspree</strong>",
+  "project3-task1":"<strong>Rôles utilisateurs</strong> et gestion des droits",
+  "project3-task2":"<strong>Tableau des tâches</strong> avec gestion des statuts",
+  "project3-task3":"Persistance avec <strong>base de données SQL</strong>",
+  "project3-task4":"<strong>API REST</strong> avec backend Java",
+  "project3-task5":"Interface responsive avec <strong>Angular</strong>"
 },
 "English":{
   "portfolio-title":"Portfolio",
@@ -283,7 +301,25 @@ const translations={
   "cert2-skills":"Web development",
   "contact-name":"Name",
   "contact-message":"Message",
-  "contact-submit":"Send"
+  "contact-submit":"Send",
+  "project-ai-badge":"Teamwork · Frontend",
+  "project-ai-title":"AI‑Text‑Analyzer – Frontend Development",
+  "project-ai-desc":"Web application for analyzing texts for grammatical errors. Responsible for the entire <strong>frontend design and implementation</strong> – from concept to Flask integration.",
+  "project-ai-task1":"Responsive layout with <strong>Bootstrap 5</strong>",
+  "project-ai-task2":"Modern navbar with <strong>language selection</strong> (multilingual)",
+  "project-ai-task3":"Intuitive <strong>file upload system</strong>",
+  "project-ai-task4":"Structured <strong>results display</strong> of the analysis",
+  "project-ai-task5":"Template integration via <strong>Jinja2 / Flask</strong>",
+  "project1-task1":"Animated <strong>hero section</strong> with typewriter effect",
+  "project1-task2":"<strong>Dark / Light mode</strong> with CSS variables",
+  "project1-task3":"<strong>Skills carousel</strong> with CSS animation",
+  "project1-task4":"Multilingual support via <strong>JavaScript</strong>",
+  "project1-task5":"Form integration via <strong>Formspree</strong>",
+  "project3-task1":"<strong>User roles</strong> and permission management",
+  "project3-task2":"<strong>Task board</strong> with status management",
+  "project3-task3":"Persistence with <strong>SQL database</strong>",
+  "project3-task4":"<strong>REST API</strong> with Java backend",
+  "project3-task5":"Responsive UI with <strong>Angular</strong>"
 },
 "Deutsch":{
   "portfolio-title":"Portfolio",
@@ -371,7 +407,25 @@ const translations={
   "cert2-skills":"Webentwicklung",
   "contact-name":"Name",
   "contact-message":"Nachricht",
-  "contact-submit":"Senden"
+  "contact-submit":"Senden",
+  "project-ai-badge":"Teamarbeit · Frontend",
+  "project-ai-title":"AI‑Text‑Analyzer – Frontend Entwicklung",
+  "project-ai-desc":"Webanwendung zur Analyse von Texten auf grammatikalische Fehler. Verantwortlich für das gesamte <strong>Frontend-Design und die Implementierung</strong> – von der Konzeption bis zur Flask-Anbindung.",
+  "project-ai-task1":"Responsives Layout mit <strong>Bootstrap 5</strong>",
+  "project-ai-task2":"Moderne Navbar mit <strong>Sprachwahl</strong> (mehrsprachig)",
+  "project-ai-task3":"Intuitives <strong>Datei-Upload-System</strong>",
+  "project-ai-task4":"Strukturierte <strong>Ergebnisanzeige</strong> der Analyse",
+  "project-ai-task5":"Template-Integration via <strong>Jinja2 / Flask</strong>",
+  "project1-task1":"Animierter <strong>Hero-Bereich</strong> mit Typewriter-Effekt",
+  "project1-task2":"<strong>Dark / Light Mode</strong> mit CSS-Variablen",
+  "project1-task3":"<strong>Skills-Karussell</strong> mit CSS-Animation",
+  "project1-task4":"Mehrsprachigkeit via <strong>JavaScript</strong>",
+  "project1-task5":"Formularintegration über <strong>Formspree</strong>",
+  "project3-task1":"<strong>Benutzerrollen</strong> und Rechteverwaltung",
+  "project3-task2":"<strong>Aufgaben-Board</strong> mit Statusverwaltung",
+  "project3-task3":"Persistenz mit <strong>SQL-Datenbank</strong>",
+  "project3-task4":"<strong>REST-API</strong> mit Java Backend",
+  "project3-task5":"Responsive UI mit <strong>Angular</strong>"
 }
 };
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
@@ -395,7 +449,11 @@ document.querySelectorAll('.dropdown-content a').forEach(link=>{
           if(el.type==='submit') el.value=translations[lang][key];
           else el.placeholder=translations[lang][key];
         } else {
-          el.textContent=translations[lang][key];
+          if(el.dataset.html==='true'){
+            el.innerHTML=translations[lang][key];
+          } else {
+            el.textContent=translations[lang][key];
+          }
         }
       }
     });
@@ -418,6 +476,65 @@ document.querySelectorAll('.exp-toggle').forEach(btn=>{
     btn.textContent=isExpanded?dict['exp-less']:dict['exp-more'];
   });
 });
+
+// Projects carousel
+(function initCarousel() {
+  const viewport  = document.getElementById('projectsCarousel');
+  const track     = viewport?.querySelector('.carousel-track');
+  const prevBtn   = document.getElementById('carouselPrev');
+  const nextBtn   = document.getElementById('carouselNext');
+  const dots      = document.querySelectorAll('.carousel-dot');
+  if (!viewport || !track) return;
+
+  let currentIndex = 0;
+
+  const cards = () => track.querySelectorAll('.project-card');
+  const cardWidth = () => {
+    const c = cards()[0];
+    if (!c) return 0;
+    const gap = parseInt(getComputedStyle(track).gap) || 24;
+    return c.offsetWidth + gap;
+  };
+  const maxIndex = () => Math.max(0, cards().length - 1);
+
+  const goTo = (index) => {
+    currentIndex = Math.max(0, Math.min(index, maxIndex()));
+    track.style.transform = `translateX(-${currentIndex * cardWidth()}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex();
+  };
+
+  prevBtn?.addEventListener('click', () => goTo(currentIndex - 1));
+  nextBtn?.addEventListener('click', () => goTo(currentIndex + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+
+  // Swipe / drag on touch and mouse
+  let pointerStart = null;
+  let scrollStart  = 0;
+
+  const onPointerDown = (e) => {
+    pointerStart = e.touches ? e.touches[0].clientX : e.clientX;
+    scrollStart  = currentIndex;
+  };
+  const onPointerUp = (e) => {
+    if (pointerStart === null) return;
+    const end   = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const delta = pointerStart - end;
+    if (Math.abs(delta) > 40) goTo(delta > 0 ? currentIndex + 1 : currentIndex - 1);
+    pointerStart = null;
+  };
+
+  viewport.addEventListener('touchstart',  onPointerDown, { passive: true });
+  viewport.addEventListener('touchend',    onPointerUp,   { passive: true });
+  viewport.addEventListener('mousedown',   onPointerDown);
+  viewport.addEventListener('mouseup',     onPointerUp);
+
+  // Re-calculate on resize
+  window.addEventListener('resize', () => goTo(Math.min(currentIndex, maxIndex())));
+
+  goTo(0);
+})();
 
 // Modal pour les certificats
 function openModal(imgSrc){
