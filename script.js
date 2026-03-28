@@ -213,7 +213,8 @@ const translations={
   "project3-task2":"<strong>Tableau des tâches</strong> avec gestion des statuts",
   "project3-task3":"Persistance avec <strong>base de données SQL</strong>",
   "project3-task4":"<strong>API REST</strong> avec backend Java",
-  "project3-task5":"Interface responsive avec <strong>Angular</strong>"
+  "project3-task5":"Interface responsive avec <strong>Angular</strong>",
+  "contact-success":"Message envoyé – merci !"
 },
 "English":{
   "portfolio-title":"Portfolio",
@@ -319,7 +320,8 @@ const translations={
   "project3-task2":"<strong>Task board</strong> with status management",
   "project3-task3":"Persistence with <strong>SQL database</strong>",
   "project3-task4":"<strong>REST API</strong> with Java backend",
-  "project3-task5":"Responsive UI with <strong>Angular</strong>"
+  "project3-task5":"Responsive UI with <strong>Angular</strong>",
+  "contact-success":"Message sent – thank you!"
 },
 "Deutsch":{
   "portfolio-title":"Portfolio",
@@ -425,7 +427,8 @@ const translations={
   "project3-task2":"<strong>Aufgaben-Board</strong> mit Statusverwaltung",
   "project3-task3":"Persistenz mit <strong>SQL-Datenbank</strong>",
   "project3-task4":"<strong>REST-API</strong> mit Java Backend",
-  "project3-task5":"Responsive UI mit <strong>Angular</strong>"
+  "project3-task5":"Responsive UI mit <strong>Angular</strong>",
+  "contact-success":"Nachricht gesendet – vielen Dank!"
 }
 };
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
@@ -535,6 +538,34 @@ document.querySelectorAll('.exp-toggle').forEach(btn=>{
 
   goTo(0);
 })();
+
+// Footer year
+const footerYear = document.getElementById('footerYear');
+if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+// Contact form AJAX submission
+const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+contactForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = contactForm.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      contactForm.reset();
+      if (formSuccess) formSuccess.hidden = false;
+    } else {
+      btn.disabled = false;
+    }
+  } catch {
+    btn.disabled = false;
+  }
+});
 
 // Modal pour les certificats
 function openModal(imgSrc){
