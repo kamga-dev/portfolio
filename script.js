@@ -35,16 +35,17 @@ const typewriterContainer=document.querySelector('.typewriter');
 const typewriterTextEl=document.getElementById('typewriter-text');
 let typewriterTimer=null;
 let typewriterState={ index:0, deleting:false, text:'' };
-const startTypewriter=(text)=>{
+const startTypewriter=(raw)=>{
   if(!typewriterContainer||!typewriterTextEl) return;
   if(typewriterTimer) clearTimeout(typewriterTimer);
-  typewriterState={ index:0, deleting:false, text:text||'' };
+  const texts=(typeof raw==='string'?raw.split('|'):raw).map(t=>t.trim()).filter(Boolean);
+  typewriterState={ index:0, deleting:false, textIndex:0, texts };
   const typeSpeed=90;
   const deleteSpeed=60;
   const pauseTime=1200;
   const restartDelay=400;
   const tick=()=>{
-    const fullText=typewriterState.text;
+    const fullText=typewriterState.texts[typewriterState.textIndex]||'';
     if(!typewriterState.deleting){
       typewriterState.index=Math.min(typewriterState.index+1,fullText.length);
       typewriterTextEl.textContent=fullText.slice(0,typewriterState.index);
@@ -59,6 +60,7 @@ const startTypewriter=(text)=>{
       typewriterTextEl.textContent=fullText.slice(0,typewriterState.index);
       if(typewriterState.index===0){
         typewriterState.deleting=false;
+        typewriterState.textIndex=(typewriterState.textIndex+1)%typewriterState.texts.length;
         typewriterTimer=setTimeout(tick,restartDelay);
         return;
       }
@@ -121,7 +123,7 @@ const translations={
   "home-title":"Bienvenue",
   "hero-name":"Kuete Kamga Starline Lecool",
   "home-text":"Étudiant en informatique motivé à la Hochschule Mittelhessen, passionné par le développement logiciel, les bases de données et les nouvelles technologies.",
-  "typewriter-text":"Développeur Web (HTML, CSS, Java)",
+  "typewriter-text":"Développeur Web (HTML, CSS, Java)|Étudiant en informatique|Développeur Backend",
   "skills-title":"Compétences",
   "skill-edv":"EDV (Saisie & Données)",
   "qc-linkedin":"LinkedIn",
@@ -132,8 +134,6 @@ const translations={
   "projects-text":"Mes projets seront bientôt ajoutés...",
   "project1-title":"Portfolio Développeur Web",
   "project1-desc":"Mon portfolio personnel présente mes compétences en développement web, avec des animations, un design responsive et l'intégration de projets réels.",
-  "project2-title":"Plateforme E-Commerce",
-  "project2-desc":"Une plateforme e-commerce moderne avec catalogue de produits, panier et intégration de paiement. Développée avec un design responsive pour une expérience utilisateur optimale.",
   "project3-title":"Système de Gestion de Tâches",
   "project3-desc":"Un outil de gestion de tâches collaboratif avec mises à jour en temps réel, rôles utilisateurs et notifications. Permet une gestion de projet efficace en équipe.",
   "project-view":"Voir",
@@ -214,6 +214,14 @@ const translations={
   "project3-task3":"Persistance avec <strong>base de données SQL</strong>",
   "project3-task4":"<strong>API REST</strong> avec backend Java",
   "project3-task5":"Interface responsive avec <strong>Angular</strong>",
+  "project4-badge":"Assignment · Fullstack",
+  "project4-title":"DM Tree – Plateforme communautaire",
+  "project4-desc":"Prototype de plateforme communautaire avec actualités, tableau d'idées et chat en temps réel. Authentification JWT, contrôle d'accès basé sur les rôles et multilinguisme (DE/EN/FR/ES).",
+  "project4-task1":"<strong>Authentification JWT</strong> avec bcrypt",
+  "project4-task2":"<strong>Contrôle d'accès basé sur les rôles</strong> (Admin/Membre)",
+  "project4-task3":"<strong>Chat en temps réel</strong> via HTTP Polling",
+  "project4-task4":"Base de données avec <strong>Prisma ORM & SQLite</strong>",
+  "project4-task5":"Multilinguisme & <strong>mode sombre/clair</strong>",
   "contact-success":"Message envoyé – merci !"
 },
 "English":{
@@ -228,13 +236,11 @@ const translations={
   "home-title":"Welcome",
   "hero-name":"Kuete Kamga Starline Lecool",
   "home-text":"Motivated Computer Science student at the Technical University of Central Hesse, passionate about software development, databases, and new technologies.",
-  "typewriter-text":"Web Developer (HTML, CSS, Java)",
+  "typewriter-text":"Web Developer (HTML, CSS, Java)|Computer Science Student|Backend Developer",
   "skills-title":"Skills",
   "skill-edv":"EDV (Data Entry)",
   "project1-title":"Web Developer Portfolio",
   "project1-desc":"My personal portfolio showcases my web development skills, featuring animations, responsive design, and integration of real projects.",
-  "project2-title":"E-Commerce Platform",
-  "project2-desc":"A modern e-commerce platform with product catalog, shopping cart and payment integration. Developed with responsive design for optimal user experience.",
   "project3-title":"Task Management System",
   "project3-desc":"A collaborative task management tool with real-time updates, user roles and notifications. Enables efficient team project management.",
   "project-view":"View",
@@ -321,6 +327,14 @@ const translations={
   "project3-task3":"Persistence with <strong>SQL database</strong>",
   "project3-task4":"<strong>REST API</strong> with Java backend",
   "project3-task5":"Responsive UI with <strong>Angular</strong>",
+  "project4-badge":"Assignment · Fullstack",
+  "project4-title":"DM Tree – Community Platform",
+  "project4-desc":"Community platform prototype with news, ideas board and real-time chat. JWT authentication, role-based access control and multilingual support (DE/EN/FR/ES).",
+  "project4-task1":"<strong>JWT authentication</strong> with bcrypt",
+  "project4-task2":"<strong>Role-based access control</strong> (Admin/Member)",
+  "project4-task3":"<strong>Real-time chat</strong> via HTTP Polling",
+  "project4-task4":"Database integration with <strong>Prisma ORM & SQLite</strong>",
+  "project4-task5":"Multilingual support & <strong>dark/light mode</strong>",
   "contact-success":"Message sent – thank you!"
 },
 "Deutsch":{
@@ -335,13 +349,11 @@ const translations={
   "home-title":"Willkommen",
   "hero-name":"Kuete Kamga Starline Lecool",
   "home-text":"Motivierter Informatikstudent an der Technische Hochschule Mittelhessen mit Leidenschaft für Softwareentwicklung, Datenbanken und neue Technologien.",
-  "typewriter-text":"Webentwickler (HTML, CSS, Java)",
+  "typewriter-text":"Webentwickler (HTML, CSS, Java)|Informatikstudent|Backend Entwickler",
   "skills-title":"Fähigkeiten",
   "skill-edv":"EDV (Dateneingabe)",
   "project1-title":"Portfolio Web Developer",
   "project1-desc":"Mein persönliches Portfolio zeigt meine Webentwicklungsfähigkeiten, mit Animationen, responsive Design und Integration realer Projekte.",
-  "project2-title":"E-Commerce Platform",
-  "project2-desc":"Eine moderne E-Commerce-Plattform mit Produktkatalog, Warenkorb und Zahlungsintegration. Entwickelt mit responsivem Design für optimale Benutzererfahrung.",
   "project3-title":"Task Management System",
   "project3-desc":"Ein kollaboratives Task-Management-Tool mit Echtzeit-Updates, Benutzerrollen und Benachrichtigungen. Ermöglicht effizientes Projektmanagement im Team.",
   "project-view":"Ansehen",
@@ -428,13 +440,28 @@ const translations={
   "project3-task3":"Persistenz mit <strong>SQL-Datenbank</strong>",
   "project3-task4":"<strong>REST-API</strong> mit Java Backend",
   "project3-task5":"Responsive UI mit <strong>Angular</strong>",
+  "project4-badge":"Assignment · Fullstack",
+  "project4-title":"DM Tree – Community Plattform",
+  "project4-desc":"Community-Plattform-Prototyp mit News, Ideen-Board und Echtzeit-Chat. JWT-Authentifizierung, rollenbasierte Zugriffskontrolle und Mehrsprachigkeit (DE/EN/FR/ES).",
+  "project4-task1":"<strong>JWT-Authentifizierung</strong> mit bcrypt",
+  "project4-task2":"<strong>Rollenbasierte Zugriffskontrolle</strong> (Admin/Member)",
+  "project4-task3":"<strong>Echtzeit-Chat</strong> via HTTP-Polling",
+  "project4-task4":"Datenbankanbindung mit <strong>Prisma ORM & SQLite</strong>",
+  "project4-task5":"Mehrsprachigkeit & <strong>Dark/Light-Mode</strong>",
   "contact-success":"Nachricht gesendet – vielen Dank!"
 }
 };
+// Mark default language as active
+document.querySelectorAll('.dropdown-content a').forEach(link=>{
+  if(link.textContent===currentLang) link.classList.add('active-lang');
+});
+
 document.querySelectorAll('.dropdown-content a').forEach(link=>{
   link.addEventListener('click',e=>{
     const lang=e.target.textContent;
     currentLang=lang;
+    document.querySelectorAll('.dropdown-content a').forEach(l=>l.classList.remove('active-lang'));
+    e.target.classList.add('active-lang');
     document.querySelectorAll('[data-key]').forEach(el=>{
       const key=el.getAttribute('data-key');
       if(translations[lang][key]){

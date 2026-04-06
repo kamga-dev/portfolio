@@ -25,9 +25,9 @@ Modernes Web-Portfolio mit Glassmorphism-Design, Dark/Light-Mode, mehrsprachiger
 
 ```
 portfolio/
-├── index.html          # Hauptseite (HTML-Struktur, 509 Zeilen)
-├── style.css           # Styles und Animationen (1.726 Zeilen)
-├── script.js           # JS-Logik: Navigation, Karussells, i18n (550 Zeilen)
+├── index.html          # Hauptseite (HTML-Struktur, 579 Zeilen)
+├── style.css           # Styles und Animationen (1.846 Zeilen)
+├── script.js           # JS-Logik: Navigation, Karussells, i18n (608 Zeilen)
 ├── nachweise/          # Zertifikatsbilder
 │   ├── erste-website.png
 │   ├── excel.png
@@ -45,7 +45,7 @@ portfolio/
 |---|---|
 | **Home** | Foto, Name, animierter Titel, Schnelllinks |
 | **Skills** | Karussell mit HTML, CSS, Java, Python, PHP, SQL, Angular… |
-| **Projekte** | AI-Text-Analyzer, Portfolio, Task-Management-System |
+| **Projekte** | DM Tree Community Platform, AI-Text-Analyzer, Portfolio, Task-Management-System |
 | **Erfahrung** | Werkstudent bei Zenithis, Dateneingabe Rotes Kreuz |
 | **Ausbildung** | Informatik — Technische Hochschule Mittelhessen (laufend) |
 | **Zertifikate** | 4 Zertifikate von LinkedIn & Uniwunder |
@@ -64,7 +64,8 @@ portfolio/
 - [Simple Icons](https://simpleicons.org) — Social-Media-Icons
 
 **In den Projekten verwendete Technologien**
-- Bootstrap 5, Flask / Jinja2, Angular, Java (REST API), PHP, SQL / MySQL
+- Bootstrap 5, Flask / Jinja2, Angular, Java (REST API), SQL / MySQL
+- Next.js 14, TypeScript, Prisma ORM, SQLite, Tailwind CSS
 
 ## Projekt starten
 
@@ -82,13 +83,19 @@ python -m http.server 8080
 
 ## Vorgestellte Projekte
 
+### DM Tree – Community Plattform ⭐
+Take-Home Assignment: Community-Plattform-Prototyp mit News, Ideen-Board und Echtzeit-Chat.
+Features: JWT-Authentifizierung, rollenbasierte Zugriffskontrolle (Admin/Member), Mehrsprachigkeit (DE/EN/FR/ES), Dark/Light-Mode.
+Stack: Next.js 14, TypeScript, Prisma ORM, SQLite, Tailwind CSS
+[GitHub](https://github.com/kamga-dev/Dmtree-assignment)
+
 ### AI-Text-Analyzer
 Webanwendung zur grammatikalischen Analyse von Texten.
 Stack: HTML, CSS, Bootstrap 5, JavaScript, Jinja2, Flask
 
 ### Portfolio Web Developer
 Dieses Portfolio selbst — vollständige Frontend-Konzeption und -Entwicklung.
-Stack: HTML, CSS, JavaScript, PHP
+Stack: HTML, CSS, JavaScript
 
 ### Task-Management-System
 Kollaboratives Aufgabenverwaltungstool mit Echtzeit-Updates.
